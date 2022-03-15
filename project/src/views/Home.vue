@@ -77,7 +77,7 @@ export default {
   --textco: var(--black);
 }
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;500;700&display=swap");
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 414px) {
   body {
     background: var(--bgco);
     color: var(--textco);
@@ -126,14 +126,15 @@ export default {
   .google-signup {
     background: #fff;
     color: #000000a9;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 0.5px solid rgba(41, 41, 41, 0.459);
   }
   .email-signup {
     margin-top: 15px;
     background: var(--signcolor);
     color: #fff;
-    -webkit-box-shadow: inset 0px 0px 0px 1px #eeeeee;
-    -moz-box-shadow: inset 0px 0px 0px 1px #eeeeee;
-    box-shadow: inset 0px 0px 0px 1px #eeeeee;
   }
   .signin {
     background: inherit;
