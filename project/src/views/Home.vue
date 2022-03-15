@@ -1,36 +1,47 @@
 <template>
   <main>
-    <div class="topWrap">
-      <img src="@/assets/logo.svg" alt="logo" id="logo" />
-      <div class="themeWrapper">
-        <input
-          type="checkbox"
-          name="checkbox"
-          class="togThemer"
-          @change="switchTheme()"
-        />
-      </div>
+    <div class="desktopView">Site under construction.</div>
+    <div class="mobileLandscapeView">
+      <h1>Mobile users: Please use Kishu in portrait mode.</h1>
+      <img
+        src="@/assets/landscape-to-portrait.png"
+        alt="Change your app orientation"
+      />
+      <h2>Desktop users: Please use Kishu in fullscreen.</h2>
     </div>
-    <h1 class="welcome" style="margin-top: 40px">Hello</h1>
-    <h2 class="headline">Join kishu today.</h2>
-    <div class="sign-box">
-      <button class="facebook-signup">
-        <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
-        <p class="btn-text">Sign in with Facebook</p>
-      </button>
-      <button class="google-signup">
-        <img src="@/assets/google.png" alt="goog" class="goog-logo" />
-        <p class="btn-text">Sign in with Google</p>
-      </button>
-      <button class="email-signup">Sign up with email</button>
-      <p class="disclaimer-text">
-        By signing up, you agree to the
-        <span style="color: #42c2ff">Terms of Service</span> and
-        <span style="color: #42c2ff">Privacy Policy</span>, including
-        <span style="color: #42c2ff"> cookie use </span>.
-      </p>
-      <h4 class="t4-alr">Already have an account?</h4>
-      <button class="signin">Sign in</button>
+    <div class="mobilePortraitView">
+      <div class="topWrap">
+        <img src="@/assets/logo.svg" alt="logo" id="logo" />
+        <div class="themeWrapper">
+          <input
+            type="checkbox"
+            name="checkbox"
+            class="togThemer"
+            @change="switchTheme()"
+          />
+        </div>
+      </div>
+      <h1 class="welcome" style="margin-top: 40px">Hello</h1>
+      <h2 class="headline">Join kishu today.</h2>
+      <div class="sign-box">
+        <button class="facebook-signup">
+          <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
+          <p class="btn-text">Sign in with Facebook</p>
+        </button>
+        <button class="google-signup">
+          <img src="@/assets/google.png" alt="goog" class="goog-logo" />
+          <p class="btn-text">Sign in with Google</p>
+        </button>
+        <button class="email-signup">Sign up with email</button>
+        <p class="disclaimer-text">
+          By signing up, you agree to the
+          <span style="color: #42c2ff">Terms of Service</span> and
+          <span style="color: #42c2ff">Privacy Policy</span>, including
+          <span style="color: #42c2ff"> cookie use </span>.
+        </p>
+        <h4 class="t4-alr">Already have an account?</h4>
+        <button class="signin">Sign in</button>
+      </div>
     </div>
   </main>
 </template>
@@ -77,7 +88,32 @@ export default {
   --textco: var(--black);
 }
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;500;700&display=swap");
-@media only screen and (max-width: 414px) {
+@media only screen and (min-width: 1281px) {
+  .mobileLandscapeView,
+  .mobilePortraitView {
+    display: none;
+  }
+}
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+  .desktopView {
+    display: none;
+  }
+  .mobilePortraitView {
+    display: none;
+  }
+  .mobileLandscapeView {
+    font-family: "Sora";
+    margin-top: 4.5rem;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 460px) and (orientation: portrait) {
+  .desktopView {
+    display: none;
+  }
+  .mobileLandscapeView {
+    display: none;
+  }
   body {
     background: var(--bgco);
     color: var(--textco);
