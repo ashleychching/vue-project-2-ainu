@@ -118,6 +118,7 @@ export default {
     background: #7d6eb3;
     height: 100%;
     overflow: hidden;
+    background-image: url("../assets/login-bg.jpg");
   }
   .desktopView {
     min-height: 100vh;
