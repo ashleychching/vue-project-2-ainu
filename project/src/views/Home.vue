@@ -1,8 +1,8 @@
 <template>
   <main>
     <div class="desktopView">
-      Site under construction.
       <div class="sign-box">
+        <h1 class="welcome" style="margin-top: 40px">Happening now.</h1>
         <button class="facebook-signup">
           <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
           <p class="btn-text">Sign in with Facebook</p>
@@ -115,11 +115,17 @@ export default {
     display: none;
   }
   body {
-    background-image: url("../assets/login-bg.png");
+    background: #7d6eb3;
+    height: 100%;
+    overflow: hidden;
+  }
+  .desktopView {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
   }
   .sign-box {
-    width: 54.5%;
-    margin: auto;
+    margin-left: 10%;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 18px;
@@ -181,6 +187,12 @@ export default {
     height: 30px;
     width: 30px;
     margin-right: 10px;
+  }
+  .welcome {
+    font-family: "Sora";
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 30px;
   }
 }
 @media only screen and (max-width: 896px) and (orientation: landscape) {
