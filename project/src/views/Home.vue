@@ -326,7 +326,7 @@ export default {
     display: block;
     position: absolute;
     left: 0;
-    top: -3px;
+    top: 5px;
     border-radius: 50%;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);

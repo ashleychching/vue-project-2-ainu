@@ -80,7 +80,6 @@ form.register {
 }
 h2 {
 	font-size: 2rem;
-	text-transform: uppercase;
 	margin-bottom: 2rem;
 }
 input {
