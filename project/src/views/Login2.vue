@@ -11,7 +11,7 @@
           <img src="@/assets/google.png" alt="goog" class="goog-logo" />
           <p class="btn-text">Sign in with Google</p>
         </button>
-        <button class="email-signup">Sign up with email</button>
+        <button class="email-signup" >Sign up with email</button>
         <p class="disclaimer-text">
           By signing up, you agree to the
           <span style="color: #42c2ff">Terms of Service</span> and
@@ -53,7 +53,7 @@
           <img src="@/assets/google.png" alt="goog" class="goog-logo" />
           <p class="btn-text">Sign in with Google</p>
         </button>
-        <button class="email-signup">Sign up with email</button>
+        <button class="email-signup" @click="goToEmail()" >Sign up with email</button>
         <p class="disclaimer-text">
           By signing up, you agree to the
           <span style="color: #42c2ff">Terms of Service</span> and
@@ -82,6 +82,10 @@ export default {
       }
       console.log("Hi!");
     },
+      goToEmail(){
+        console.log("btn clicked");
+        this.$router.push('/login'); 
+      },
   },
   mounted() {
     document.body.classList.add("light-mode");

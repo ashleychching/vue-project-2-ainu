@@ -38,8 +38,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/login' && auth.currentUser) {
-    next('/')
+  if ((to.path !== '/login2' && to.path !== 'login') && !auth.currentUser) {
+    next({path:'/login2'})
     return;
   }
 
