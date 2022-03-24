@@ -29,7 +29,12 @@ const routes = [
     path: '/login2',
     name: 'Login2',
     component: () => import('../views/Login2.vue')
-  }
+  },
+  {
+    path: '/mobilelogin',
+    name: 'MobileLogin',
+    component: () => import('../views/MobileLogin.vue')
+  },
 ]
 
 const router = createRouter({
@@ -38,10 +43,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if ((to.path !== '/login2' && to.path !== 'login') && !auth.currentUser) {
+  if ((to.path !== '/login2' && to.path !== 'login') && !auth.currentUser)/*  {
     next({path:'/login2'})
     return;
-  }
+  } */
 
   if (to.matched.some(record => record.meta.requiresAuth) && !auth.currentUser) {
     next('/login2')

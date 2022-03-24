@@ -8,7 +8,11 @@
 </template>
 
 <style>
-
+html, body{
+ margin: 0;
+ padding: 0;
+ overflow-x: hidden;
+}
 
 #nav a.router-link-exact-active {
   color: #42b983;
