@@ -1,103 +1,4 @@
-<template>
-  <main>
-    <div class="desktopView">
-      <div class="sign-box">
-        <h1 class="welcome" style="margin-top: 40px">Happening now.</h1>
-        <button class="facebook-signup">
-          <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
-          <p class="btn-text">Sign in with Facebook</p>
-        </button>
-        <button class="google-signup">
-          <img src="@/assets/google.png" alt="goog" class="goog-logo" />
-          <p class="btn-text">Sign in with Google</p>
-        </button>
-        <button class="email-signup" @click="goToEmail()">
-          Sign up with email
-        </button>
-        <p class="disclaimer-text">
-          By signing up, you agree to the
-          <span style="color: #42c2ff">Terms of Service</span> and
-          <span style="color: #42c2ff">Privacy Policy</span>, including
-          <span style="color: #42c2ff"> cookie use </span>.
-        </p>
-        <h4 class="t4-alr">Already have an account?</h4>
-        <button class="signin">Sign in</button>
-      </div>
-    </div>
-    <div class="mobileLandscapeView">
-      <h1>Mobile users: Please use Kishu in portrait mode.</h1>
-      <img
-        src="@/assets/landscape-to-portrait.png"
-        alt="Change your app orientation"
-      />
-      <h2>Desktop users: Please use Kishu in fullscreen.</h2>
-    </div>
-    <div class="mobilePortraitView">
-      <div class="topWrap">
-        <img src="@/assets/logo.svg" alt="logo" id="logo" />
-        <div class="themeWrapper">
-          <input
-            type="checkbox"
-            name="checkbox"
-            class="togThemer"
-            @change="switchTheme()"
-          />
-        </div>
-      </div>
-      <h1 class="welcome" style="margin-top: 40px">Hello</h1>
-      <h2 class="headline">Join kishu today.</h2>
-      <div class="sign-box">
-        <button class="facebook-signup">
-          <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
-          <p class="btn-text">Sign in with Facebook</p>
-        </button>
-        <button class="google-signup">
-          <img src="@/assets/google.png" alt="goog" class="goog-logo" />
-          <p class="btn-text">Sign in with Google</p>
-        </button>
-        <button class="email-signup" @click="goToEmail()">
-          Sign up with email
-        </button>
-        <p class="disclaimer-text">
-          By signing up, you agree to the
-          <span style="color: #42c2ff">Terms of Service</span> and
-          <span style="color: #42c2ff">Privacy Policy</span>, including
-          <span style="color: #42c2ff"> cookie use </span>.
-        </p>
-        <h4 class="t4-alr">Already have an account?</h4>
-        <button class="signin">Sign in</button>
-      </div>
-    </div>
-  </main>
-</template>
-
-<script>
-export default {
-  name: "Login2",
-  components: {},
-  methods: {
-    switchTheme: function () {
-      if (document.body.classList.contains("dark-mode")) {
-        document.body.classList.add("light-mode");
-        document.body.classList.remove("dark-mode");
-      } else {
-        document.body.classList.add("dark-mode");
-        document.body.classList.remove("light-mode");
-      }
-      console.log("Hi!");
-    },
-    goToEmail() {
-      console.log("btn clicked");
-      this.$router.push("/login");
-    },
-  },
-  mounted() {
-    document.body.classList.add("light-mode");
-  },
-};
-</script>
-
-<style>
+@import url("variables.css");
 :root {
   --lavender: #9f90cf;
   --bleepblue: #5463ff;
@@ -334,7 +235,7 @@ export default {
     display: block;
     position: absolute;
     left: 0;
-    top: 4px;
+    top: 5px;
     border-radius: 50%;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -369,4 +270,3 @@ export default {
     margin-right: 30px;
   }
 }
-</style>
