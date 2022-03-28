@@ -14,7 +14,7 @@
         <button class="email-signup">Sign up with email</button>
         <p class="disclaimer-text">
           By signing up, you agree to the
-          <span style="color: #42c2ff">Terms of Service</span> and
+          <span>Terms of Service</span> and
           <span style="color: #42c2ff">Privacy Policy</span>, including
           <span style="color: #42c2ff"> cookie use </span>.
         </p>
