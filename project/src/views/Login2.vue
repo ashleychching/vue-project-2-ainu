@@ -60,7 +60,7 @@
         </button>
         <p class="disclaimer-text">
           By signing up, you agree to the
-          <span style="color: #42c2ff">Terms of Service</span> and
+          <span class="fu" style="color: #42c2ff">Terms of Service</span> and
           <span style="color: #42c2ff">Privacy Policy</span>, including
           <span style="color: #42c2ff"> cookie use </span>.
         </p>
@@ -298,12 +298,12 @@ export default {
     font-weight: 400px;
     font-size: 12px;
   }
-  .disclaimer-text {
+  /* .disclaimer-text {
     margin-top: 12px;
     font-family: "Sora";
     font-weight: 400;
     font-size: 9px;
-  }
+  } */
   .fb-logo,
   .goog-logo {
     height: 30px;
@@ -368,5 +368,6 @@ export default {
   .themeWrapper {
     margin-right: 30px;
   }
+  .fu {}
 }
 </style>

@@ -181,7 +181,7 @@
   .email-signup {
     margin-top: 15px;
     background: var(--signcolor);
-    color: #fff;
+    color: var(--textco);
   }
   .signin {
     background: inherit;

@@ -8,19 +8,10 @@ body,
 }
 
 :root {
-  --almond: #f1dac4;
-  --gray: #a69cac;
-  --navy: #474973;
-  --blue: #161b33;
-  --black: #0d0c1d;
-  --green: #1e3231;
-  --blackcoral: #485665;
-  --lilac: #d0a5c0;
-  --purple: #8e7c93;
-  --pink: #f6c0d0;
-
-  --primary: var(--almond);
-  --secondary: var(--gray);
+  --lavender: #9f90cf;
+  --bleepblue: #5463ff;
+  --black: #000;
+  --white: #fff;
 
   --h1: 7.594rem;
   --h2: 5.063rem;
@@ -29,19 +20,16 @@ body,
   --h5: 1.5rem;
 }
 
-.cool {
-  --primary: var(--almond);
-  --secondary: var(--gray);
-  --tertiary: var(--navy);
-  --four: var(--blue);
-  --five: var(--black);
+.dark-mode {
+  --signcolor: var(--lavender);
+  --bgco: var(--black);
+  --textco: var(--white);
 }
-.warm {
-  --secondary: var(--green);
-  --five: var(--blackcoral);
-  --tertiary: var(--purple);
-  --four: var(--lilac);
-  --primary: var(--pink);
+
+.light-mode {
+  --signcolor: var(--bleepblue);
+  --bgco: var(--white);
+  --textco: var(--black);
 }
 
 h1 {
@@ -65,7 +53,7 @@ h4 {
 h5 {
   font-size: var(--h5);
 }
-p {
+p, span {
   font-size: var(--h5);
 }
 button {
