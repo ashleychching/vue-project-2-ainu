@@ -1,7 +1,10 @@
 <template>
   <nav>
     <div>
-      <router-link to="/">Home</router-link>
+      <router-link to="/"><img src="../assets/logo.svg" alt="" /></router-link>
+    </div>
+    <div>
+      <input type="text" placeholder="Search.." />
     </div>
     <div>
       <span>Logged in as...</span>
