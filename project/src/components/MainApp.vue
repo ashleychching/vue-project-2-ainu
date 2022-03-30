@@ -1,5 +1,8 @@
 <template>
-  <h1>Hi</h1>
+  <div>
+    <img src="../assets/logo.svg" alt="" srcset="" />
+    <input type="text" placeholder="Search…" />
+  </div>
 </template>
 <script></script>
 <style></style>
