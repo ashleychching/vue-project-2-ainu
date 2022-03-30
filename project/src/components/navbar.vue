@@ -7,7 +7,9 @@
       <input type="text" placeholder="Search.." />
     </div>
     <div>
-      <span>Logged in as...</span>
+      <router-link to="/"><img src="../assets/bookmark.svg" alt="" /></router-link>
+    </div>
+    <div>
       <button>Logout</button>
     </div>
 
