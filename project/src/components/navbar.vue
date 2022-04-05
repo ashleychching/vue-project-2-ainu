@@ -24,7 +24,7 @@ ul{
  color: rgb(13, 77, 13);
  background-color: white;
  height: 4rem;
- border-radius: 6px;
+ width: 20rem;
 }
 .bookmark, .logo{
   height: 5rem;
