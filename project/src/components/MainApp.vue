@@ -52,7 +52,6 @@ nav {
 }
 
 .nbar-lf {
-  margin-left: 1.5rem;
   margin-right: 3rem;
 }
 
