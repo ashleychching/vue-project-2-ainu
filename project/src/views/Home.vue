@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>huhdfjlkdslkj</h1>
-    <div v-for="blog in blocks" :key="blog.id">
+    <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
         <p>ufjksahjdskha fdsklaj jfdsklan jakf oa skee</p>
@@ -26,14 +26,15 @@ export default {
     ]);
     return {
       blogs,
-    };
-  },
+    }
+  }
 };
 </script>
 
 <style>
 body{
   background-color: orange;
+  font-size: 80rem;
 
 }
 </style>
