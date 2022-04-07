@@ -1,16 +1,16 @@
 <template>
-<main class="login">
+<main class="register">
 		<section class="forms">
-			<form class="login" @submit.prevent="login">
+			<form class="login" @submit.prevent="register">
 				<h2>Login</h2>
 				<input 
 					type="email" 
 					placeholder="Email address"
-					v-model="login_form.email" />
+					v-model="register_form.email" />
 				<input 
 					type="password" 
 					placeholder="Password" 
-					v-model="login_form.password" />
+					v-model="register_form.password" />
 				<input 
 					type="submit" 
 					value="Login" />
@@ -26,14 +26,14 @@ import { useStore } from 'vuex'
 
 export default {
 	setup () {
-		const login_form = ref({});
+		const register_form = ref({});
 		const store = useStore();
-		const login = () => {
-			store.dispatch('login', login_form.value);
+		const register = () => {
+			store.dispatch('register', register_form.value);
 		}
 		return {
-			login_form,
-			login
+			register_form,
+			register
 		}
 	}
 }
