@@ -21,7 +21,7 @@
       </ul>
     </nav>
     <section class="m-content">
-      <div v-if="feed_empty">
+      <div v-if="feed_empty" class="empty-feed-placeholder">
         <img
           src="https://c.tenor.com/Nv2YauTamwIAAAAC/dead-chat-dead.gif"
           alt="dead chat"
@@ -33,6 +33,11 @@
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      feed_empty: true,
+    };
+  },
 };
 </script>
 <style>
@@ -66,5 +71,10 @@ nav {
   width: 40vw;
   font-family: Arial, FontAwesome;
   text-indent: 1.6rem;
+}
+
+.empty-feed-placeholder {
+  display: flex;
+  justify-content: center;
 }
 </style>
