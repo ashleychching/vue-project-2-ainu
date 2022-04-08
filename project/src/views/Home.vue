@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>huhdfjlkdslkj</h1>
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
