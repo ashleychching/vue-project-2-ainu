@@ -1,27 +1,68 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import Login from "../views/Login.vue";
+import { auth } from "../firebase";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/About.vue')
-    }
-  }
-]
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/register.vue"),
+  },
+  {
+    path: "/login2",
+    name: "Login2",
+    component: () => import("../views/Login2.vue"),
+  },
+  {
+    path: "/mobilelogin",
+    name: "MobileLogin",
+    component: () => import("../views/MobileLogin.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  if (to.path !== "/login2" && to.path !== "login" && !auth.currentUser)
+    if (
+      to.matched.some((record) => record.meta.requiresAuth) &&
+      !auth.currentUser
+    ) {
+      /*  {
+    next({path:'/login2'})
+    return;
+  } */
+
+      next("/login2");
+      return;
+    }
+
+  next();
+});
+
+export default router;

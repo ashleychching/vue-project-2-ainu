@@ -1,4 +1,100 @@
-@import url("variables.css");
+<template>
+  <main>
+    <div class="desktopView">
+      <div class="sign-box">
+        <h1 class="welcome" style="margin-top: 40px">Happening now.</h1>
+        <button class="facebook-signup">
+          <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
+          <p class="btn-text">Sign in with Facebook</p>
+        </button>
+        <button class="google-signup">
+          <img src="@/assets/google.png" alt="goog" class="goog-logo" />
+          <p class="btn-text">Sign in with Google</p>
+        </button>
+        <button class="email-signup" @click="goToEmail()">
+          Sign up with email
+        </button>
+        <p class="disclaimer-text">
+          By signing up, you agree to the
+          <span style="color: #42c2ff">Terms of Service</span> and
+          <span style="color: #42c2ff">Privacy Policy</span>, including
+          <span style="color: #42c2ff"> cookie use </span>.
+        </p>
+        <h4 class="t4-alr">Already have an account?</h4>
+        <button class="signin" @click="goToSignIn()">Sign in</button>
+      </div>
+    </div>
+
+    <div class="mobilePortraitView">
+      <div class="topWrap">
+        <img src="@/assets/logo.svg" alt="logo" id="logo" />
+        <div class="themeWrapper">
+          <input
+            type="checkbox"
+            name="checkbox"
+            class="togThemer"
+            @change="switchTheme()"
+          />
+        </div>
+      </div>
+      <h1 class="welcome" style="margin-top: 40px">Hello</h1>
+      <h2 class="headline">Join kishu today.</h2>
+      <div class="sign-box">
+        <button class="facebook-signup">
+          <img src="@/assets/facebook.png" alt="fb" class="fb-logo" />
+          <p class="btn-text">Sign in with Facebook</p>
+        </button>
+        <button class="google-signup">
+          <img src="@/assets/google.png" alt="goog" class="goog-logo" />
+          <p class="btn-text">Sign in with Google</p>
+        </button>
+        <button class="email-signup" @click="goToEmail()">
+          Sign up with email
+        </button>
+        <p class="disclaimer-text">
+          By signing up, you agree to the
+          <span class="fu" style="color: #42c2ff">Terms of Service</span> and
+          <span style="color: #42c2ff">Privacy Policy</span>, including
+          <span style="color: #42c2ff"> cookie use </span>.
+        </p>
+        <h4 class="t4-alr">Already have an account?</h4>
+        <button class="signin" @click="goToSignIn()">Sign in</button>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script>
+export default {
+  name: "Login2",
+  components: {},
+  methods: {
+    switchTheme: function () {
+      if (document.body.classList.contains("dark-mode")) {
+        document.body.classList.add("light-mode");
+        document.body.classList.remove("dark-mode");
+      } else {
+        document.body.classList.add("dark-mode");
+        document.body.classList.remove("light-mode");
+      }
+      console.log("Hi!");
+    },
+    goToEmail() {
+      console.log("btn clicked");
+      this.$router.push("/register");
+    },
+    goToSignIn() {
+      console.log("btn clicked");
+      this.$router.push("/login");
+    },
+  },
+  mounted() {
+    document.body.classList.add("light-mode");
+  },
+};
+</script>
+
+<style>
 :root {
   --lavender: #9f90cf;
   --bleepblue: #5463ff;
@@ -118,7 +214,7 @@
     text-align: center;
   }
 }
-@media only screen and (max-width: 460px) and (orientation: portrait) {
+@media only screen and (max-width: 760px) and (orientation: portrait) {
   .desktopView {
     display: none;
   }
@@ -181,7 +277,7 @@
   .email-signup {
     margin-top: 15px;
     background: var(--signcolor);
-    color: var(--textco);
+    color: #fff;
   }
   .signin {
     background: inherit;
@@ -199,12 +295,12 @@
     font-weight: 400px;
     font-size: 12px;
   }
-  .disclaimer-text {
+  /* .disclaimer-text {
     margin-top: 12px;
     font-family: "Sora";
     font-weight: 400;
     font-size: 9px;
-  }
+  } */
   .fb-logo,
   .goog-logo {
     height: 30px;
@@ -235,7 +331,7 @@
     display: block;
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 4px;
     border-radius: 50%;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -269,5 +365,7 @@
   .themeWrapper {
     margin-right: 30px;
   }
-  
+  .fu {
+  }
 }
+</style>
