@@ -310,8 +310,8 @@ export default {
   .togThemer {
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
-    position: relative;
     border: 0;
+    position: relative;
     outline: 0;
     cursor: pointer;
   }
@@ -331,7 +331,7 @@ export default {
     display: block;
     position: absolute;
     left: 0;
-    top: 4px;
+    top: -1.2px;
     border-radius: 50%;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -363,9 +363,8 @@ export default {
     align-items: baseline;
   }
   .themeWrapper {
-    margin-right: 30px;
-  }
-  .fu {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 </style>
