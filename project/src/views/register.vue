@@ -13,7 +13,7 @@
           placeholder="Password"
           v-model="register_form.password"
         />
-        <input type="submit" value="Login" />
+        <input type="submit" value="Register" />
       </form>
     </section>
   </main>
@@ -45,5 +45,8 @@ button {
   height: 10rem;
   width: 30rem;
   font-size: 2rem;
+}
+.register {
+  padding: 5rem;
 }
 </style>
