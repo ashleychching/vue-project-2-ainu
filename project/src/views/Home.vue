@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <navbar></navbar>
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
@@ -15,7 +16,9 @@
 
 <script>
 import { ref } from "vue";
+import navbar from "../components/navbar.vue";
 export default {
+  components: { navbar },
   name: "home",
   setup() {
     const blogs = ref([
@@ -25,15 +28,14 @@ export default {
     ]);
     return {
       blogs,
-    }
-  }
+    };
+  },
 };
 </script>
 
 <style>
-body{
+body {
   background-color: orange;
   font-size: 80rem;
-
 }
 </style>

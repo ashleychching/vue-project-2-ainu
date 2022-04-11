@@ -3,7 +3,6 @@
     <!-- 
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
-    <navbar></navbar>
     <router-view />
   </div>
 </template>
@@ -21,11 +20,11 @@ html, body{
 </style>
 
 <script>
-import Navbar from './components/navbar.vue'
+
 
 export default {
   components:{
-    Navbar
+    
    
   }
 }

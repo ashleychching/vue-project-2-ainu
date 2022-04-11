@@ -3,15 +3,16 @@
     <ul>
       <li><img class="logo" src="../assets/logo.svg" alt="" /></li>
       <li><input class="search" type="text" placeholder="Search.." /></li>
-      <li><img class= "bookmark" src="../assets/bookmark.svg" alt="" /></li>
+      <li><img class="bookmark" src="../assets/bookmark.svg" alt="" /></li>
+      <li><button @click="$store.dispatch('logout')">Logout</button></li>
     </ul>
   </nav>
 </template>
 <style>
-nav{
+nav {
   margin: 3rem;
 }
-ul{
+ul {
   display: block;
   color: white;
   text-align: center;
@@ -20,13 +21,14 @@ ul{
   text-decoration: none;
   height: 5rem;
 }
-.search{
- color: rgb(13, 77, 13);
- background-color: white;
- height: 4rem;
- width: 20rem;
+.search {
+  color: rgb(13, 77, 13);
+  background-color: white;
+  height: 4rem;
+  width: 20rem;
 }
-.bookmark, .logo{
+.bookmark,
+.logo {
   height: 5rem;
 }
 </style>
