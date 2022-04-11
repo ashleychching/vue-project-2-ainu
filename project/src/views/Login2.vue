@@ -21,17 +21,10 @@
           <span style="color: #42c2ff"> cookie use </span>.
         </p>
         <h4 class="t4-alr">Already have an account?</h4>
-        <button class="signin">Sign in</button>
+        <button class="signin" @click="goToSignIn()">Sign in</button>
       </div>
     </div>
-    <div class="mobileLandscapeView">
-      <h1>Mobile users: Please use Kishu in portrait mode.</h1>
-      <img
-        src="@/assets/landscape-to-portrait.png"
-        alt="Change your app orientation"
-      />
-      <h2>Desktop users: Please use Kishu in fullscreen.</h2>
-    </div>
+
     <div class="mobilePortraitView">
       <div class="topWrap">
         <img src="@/assets/logo.svg" alt="logo" id="logo" />
@@ -65,7 +58,7 @@
           <span style="color: #42c2ff"> cookie use </span>.
         </p>
         <h4 class="t4-alr">Already have an account?</h4>
-        <button class="signin">Sign in</button>
+        <button class="signin" @click="goToSignIn()">Sign in</button>
       </div>
     </div>
   </main>
@@ -87,6 +80,10 @@ export default {
       console.log("Hi!");
     },
     goToEmail() {
+      console.log("btn clicked");
+      this.$router.push("/register");
+    },
+    goToSignIn() {
       console.log("btn clicked");
       this.$router.push("/login");
     },
@@ -217,7 +214,7 @@ export default {
     text-align: center;
   }
 }
-@media only screen and (max-width: 460px) and (orientation: portrait) {
+@media only screen and (max-width: 760px) and (orientation: portrait) {
   .desktopView {
     display: none;
   }
@@ -368,6 +365,7 @@ export default {
   .themeWrapper {
     margin-right: 30px;
   }
-  .fu {}
+  .fu {
+  }
 }
 </style>

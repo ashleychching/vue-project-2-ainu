@@ -1,59 +1,68 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import { auth } from '../firebase'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import Login from "../views/Login.vue";
+import { auth } from "../firebase";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue'),
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"),
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: Login
+    path: "/login",
+    name: "Login",
+    component: Login,
   },
   {
-    path: '/login2',
-    name: 'Login2',
-    component: () => import('../views/Login2.vue')
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/register.vue"),
   },
   {
-    path: '/mobilelogin',
-    name: 'MobileLogin',
-    component: () => import('../views/MobileLogin.vue')
+    path: "/login2",
+    name: "Login2",
+    component: () => import("../views/Login2.vue"),
   },
-]
+  {
+    path: "/mobilelogin",
+    name: "MobileLogin",
+    component: () => import("../views/MobileLogin.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
-  if ((to.path !== '/login2' && to.path !== 'login') && !auth.currentUser)/*  {
+  if (to.path !== "/login2" && to.path !== "login" && !auth.currentUser)
+    if (
+      to.matched.some((record) => record.meta.requiresAuth) &&
+      !auth.currentUser
+    ) {
+      /*  {
     next({path:'/login2'})
     return;
   } */
 
-  if (to.matched.some(record => record.meta.requiresAuth) && !auth.currentUser) {
-    next('/login2')
-    return;
-  }
+      next("/login2");
+      return;
+    }
 
   next();
-})
+});
 
-export default router
+export default router;
