@@ -228,8 +228,8 @@ export default {
   #logo {
     width: 25px;
     height: 25px;
-    margin-left: 30px;
-    margin-top: 40px;
+    margin-left: 3rem;
+    margin-top: 4rem;
   }
   .welcome {
     font-family: "Sora";
@@ -357,14 +357,17 @@ export default {
     font-family: "Sora";
     font-size: 16px;
   }
+
   .topWrap {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    flex-flow: column wrap;
   }
   .themeWrapper {
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 2rem;
+    margin-left: 3rem;
+  }
+  .togThemer {
+    height: 30px;
   }
 }
 </style>
