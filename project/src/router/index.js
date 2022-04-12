@@ -35,11 +35,7 @@ const routes = [
     name: "Login2",
     component: () => import("../views/Login2.vue"),
   },
-  {
-    path: "/mobilelogin",
-    name: "MobileLogin",
-    component: () => import("../views/MobileLogin.vue"),
-  },
+ 
 ];
 
 const router = createRouter({
