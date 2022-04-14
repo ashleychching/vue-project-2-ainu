@@ -72,7 +72,8 @@ button {
 }
 
 .email-box {
-  margin-top: 1rem;
+  margin-top: 2.1rem;
+  margin-bottom: 1rem;
 }
 
 .Loginsub {
