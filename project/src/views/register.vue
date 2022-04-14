@@ -54,17 +54,13 @@ button {
   width: 65vw;
   font-size: 2rem;
 }
-
 .register {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: center;
 }
-
 .forms {
   margin-top: 20%;
-  display: flex;
-  justify-content: center;
 }
 
 .email-box {
