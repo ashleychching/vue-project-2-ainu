@@ -61,6 +61,7 @@ button {
 }
 .forms {
   margin-top: 20%;
+  margin-left: 18%;
 }
 
 .email-box {
