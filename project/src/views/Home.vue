@@ -1,6 +1,14 @@
 <template>
   <div class="home">
     <navbar></navbar>
+    <h3>Upload post</h3>
+    <v-text-field
+      name="imageUrl"
+      label="image URL"
+      id="image-url"
+      v-model="imageUrl"
+      required
+    ></v-text-field>
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
