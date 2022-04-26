@@ -2,13 +2,7 @@
   <div class="home">
     <navbar></navbar>
     <h3>Upload post</h3>
-    <v-text-field
-      name="imageUrl"
-      label="image URL"
-      id="image-url"
-      v-model="imageUrl"
-      required
-    ></v-text-field>
+    <input type="file" class="uppics" />
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
@@ -42,8 +36,7 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: orange;
-  font-size: 80rem;
+.uppics {
+  font-size: 3rem;
 }
 </style>
