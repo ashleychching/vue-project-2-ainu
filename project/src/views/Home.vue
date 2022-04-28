@@ -2,7 +2,11 @@
   <div class="home">
     <navbar></navbar>
     <h3>Upload post</h3>
-    <input type="file" class="uppics" />
+    <input type="file" 
+    class="uppics" 
+    @click="onPickFile" 
+    accept="image/*"
+    @change="onFilePicked"/>
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
@@ -22,6 +26,17 @@ import navbar from "../components/navbar.vue";
 export default {
   components: { navbar },
   name: "home",
+  methods:{
+    onPickFile(){
+      this.uppics.click()
+    },
+   /*  onFilePicked(event){
+      const files= event.target.files
+      let filename= file[0].filename
+      if file
+      
+    } */
+  },
   setup() {
     const blogs = ref([
       { title: "Why Coffee is Better than Tea", id: 1 },
