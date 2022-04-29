@@ -1,12 +1,22 @@
 <template>
   <div class="home">
     <navbar></navbar>
+     <form action="/action_page.php">
+  <label for="fname">Name of Animal:</label><br>
+  <input type="text" id="fname" name="name"><br>
+  <label for="lname">Age:</label><br>
+  <input type="text" id="lname" name="age"><br><br>
+  <label for="lname">Located in:</label><br>
+  <input type="text" id="lname" name="age"><br><br>
+  <input type="submit" value="Submit">
+</form> 
     <h3>Upload post</h3>
     <input type="file" 
     class="uppics" 
     @click="onPickFile" 
     accept="image/*"
     @change="onFilePicked"/>
+  
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
@@ -26,16 +36,24 @@ import navbar from "../components/navbar.vue";
 export default {
   components: { navbar },
   name: "home",
+  return:{
+    image:null
+  },
   methods:{
     onPickFile(){
       this.uppics.click()
     },
-   /*  onFilePicked(event){
+     onFilePicked(event){
       const files= event.target.files
-      let filename= file[0].filename
-      if file
-      
-    } */
+      let filename= files[0].filename
+      if (filename.lastIndexOf('.')<= 0){
+        return alert('Please add a valid file!')
+      }
+      const fileReader = new FileReader()
+      fileReader.addEventListener('load', ()=> {
+        this.imageURL= fileReader.result
+      })
+    } 
   },
   setup() {
     const blogs = ref([
@@ -52,6 +70,9 @@ export default {
 
 <style>
 .uppics {
+  font-size: 3rem;
+}
+form{
   font-size: 3rem;
 }
 </style>
