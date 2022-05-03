@@ -7,7 +7,7 @@
   <label for="lname">Age:</label><br>
   <input type="text" id="lname" name="age"><br><br>
   <label for="lname">Located in:</label><br>
-  <input type="text" id="lname" name="age"><br><br>
+  <input type="text" id="lname" name="location"><br><br>
   <input type="submit" value="Submit">
 </form> 
     <h3>Upload post</h3>
@@ -16,6 +16,7 @@
     @click="onPickFile" 
     accept="image/*"
     @change="onFilePicked"/>
+    <img :src="imageURL" height="150">
   
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
@@ -37,7 +38,9 @@ export default {
   components: { navbar },
   name: "home",
   return:{
-    image:null
+    image:null,
+    imageUrl:'', 
+
   },
   methods:{
     onPickFile(){
@@ -45,14 +48,16 @@ export default {
     },
      onFilePicked(event){
       const files= event.target.files
-      let filename= files[0].filename
+      let filename= files[0].name
       if (filename.lastIndexOf('.')<= 0){
         return alert('Please add a valid file!')
       }
       const fileReader = new FileReader()
       fileReader.addEventListener('load', ()=> {
-        this.imageURL= fileReader.result
+        this.image= fileReader.result
       })
+      fileReader.readAsDataURL(files[0])
+      this.image = files[0]
     } 
   },
   setup() {
