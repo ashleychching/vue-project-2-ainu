@@ -4,6 +4,7 @@
       <li><img class="logo" src="../assets/logo.svg" alt="" /></li>
       <li><input class="search" type="text" placeholder="Search.." /></li>
       <li><img class="bookmark" src="../assets/bookmark.svg" alt="" /></li>
+      <li><router-link to="/post">Post!</router-link></li>
       <li><button @click="$store.dispatch('logout')">Logout</button></li>
     </ul>
   </nav>
@@ -14,7 +15,6 @@ nav {
 }
 ul {
   display: block;
-  color: white;
   text-align: center;
   display: flex;
   justify-content: space-evenly;
