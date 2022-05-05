@@ -61,7 +61,7 @@ export default {
         if (!this.formIsValid) {
           return
         }}}
-};
+}}
 </script>
 
 <style></style>
