@@ -2,13 +2,7 @@
   <div class="home">
     <navbar></navbar>
     <h3>Upload post</h3>
-    <input type="file" 
-    class="uppics" 
-    @click="onPickFile" 
-    accept="image/*"
-    @change="onFilePicked"/>
-    <img :src="imageURL" height="150">
-  
+
     <div v-for="blog in blogs" :key="blog.id">
       <div class="blog">
         <h2>{{ blog.title }}</h2>
@@ -28,28 +22,27 @@ import navbar from "../components/navbar.vue";
 export default {
   components: { navbar },
   name: "home",
-  return:{
-    image:null,
-    imageUrl:'', 
-
+  return: {
+    image: null,
+    imageUrl: "",
   },
-  methods:{
-    onPickFile(){
-      this.uppics.click()
+  methods: {
+    onPickFile() {
+      this.uppics.click();
     },
-     onFilePicked(event){
-      const files= event.target.files
-      let filename= files[0].name
-      if (filename.lastIndexOf('.')<= 0){
-        return alert('Please add a valid file!')
+    onFilePicked(event) {
+      const files = event.target.files;
+      let filename = files[0].name;
+      if (filename.lastIndexOf(".") <= 0) {
+        return alert("Please add a valid file!");
       }
-      const fileReader = new FileReader()
-      fileReader.addEventListener('load', ()=> {
-        this.image= fileReader.result
-      })
-      fileReader.readAsDataURL(files[0])
-      this.image = files[0]
-    } 
+      const fileReader = new FileReader();
+      fileReader.addEventListener("load", () => {
+        this.image = fileReader.result;
+      });
+      fileReader.readAsDataURL(files[0]);
+      this.image = files[0];
+    },
   },
   setup() {
     const blogs = ref([
@@ -64,11 +57,4 @@ export default {
 };
 </script>
 
-<style>
-.uppics {
-  font-size: 3rem;
-}
-form{
-  font-size: 3rem;
-}
-</style>
+<style></style>
