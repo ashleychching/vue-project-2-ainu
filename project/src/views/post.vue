@@ -1,7 +1,7 @@
 <template>
   <div>
-    <form @submit.prevent="onCreateMeetup" action="/action_page.php">
-      <label for="fname">Name of Animal:</label><br />
+    <form @submit.prevent="onCreateMeetup" >
+      <label for="animal">Name of Animal:</label><br />
       <input
         name="name"
         label="Name"
@@ -9,7 +9,7 @@
         v-model="name"
         required
       /><br />
-      <label for="lname">Age:</label><br />
+      <label for="age">Age:</label><br />
       <input
         name="age" 
         label="Age"
@@ -17,7 +17,7 @@
         v-model="age"
         required
       /><br />
-      <label for="lname">Located in:</label><br />
+      <label for="location">Located in:</label><br />
        <input
         name="location"
         label="Location"
@@ -25,7 +25,7 @@
         v-model="location"
         required
       /><br />
-      <label for="lname">Description:</label><br />
+      <label for="description">Description:</label><br />
        <input
         name="description"
         label="Description"
@@ -60,8 +60,9 @@ export default {
       onCreateMeetup () {
         if (!this.formIsValid) {
           return
-        }}}
-}}
+        }
+        }}
+} }
 </script>
 
 <style></style>
