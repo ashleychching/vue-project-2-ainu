@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="onCreateMeetup" action="/action_page.php">
+    <form @submit.prevent="onCreatePost" action="/mypage.php" >
       <label for="fname">Name of Animal:</label><br />
       <input
         name="name"
@@ -60,7 +60,17 @@ export default {
       onCreateMeetup () {
         if (!this.formIsValid) {
           return
-        }}}
+        }
+        const meetupData = {
+          name: this.name,
+          age: this.age,
+          location: this.location,
+          description: this.description,
+         
+        }
+        this.$store.dispatch('createMeetup', meetupData)
+        this.$router.push('/meetups')}
+        }
 }}
 </script>
 
