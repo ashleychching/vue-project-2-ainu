@@ -1,7 +1,7 @@
 <template>
   <div>
-    <form @submit.prevent="onCreateMeetup" >
-      <label for="animal">Name of Animal:</label><br />
+    <form @submit.prevent="onCreatePost" >
+      <label for="fname">Name of Animal:</label><br />
       <input
         name="name"
         label="Name"
@@ -57,12 +57,21 @@ export default {
           this.description !== ''
       },
     methods: {
-      onCreateMeetup () {
+      onCreatePost () {
         if (!this.formIsValid) {
           return
         }
-        }}
-} }
+        const postData = {
+          name: this.name,
+          age: this.age,
+          location: this.location,
+          description: this.description,
+         
+        }
+        this.$store.dispatch('createPost', postData)
+        this.$router.push('/posts')}
+        }
+}}
 </script>
 
 <style></style>
