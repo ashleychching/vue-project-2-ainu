@@ -1,38 +1,38 @@
 <template>
   <div>
     <form @submit.prevent="onCreatePost" >
-      <label for="fname">Name of Animal:</label><br />
+      <label for="fname">Name of Animal:</label>
       <input
         name="name"
         label="Name"
         id="name"
         v-model="name"
         required
-      /><br />
-      <label for="age">Age:</label><br />
+      />
+      <label for="age">Age:</label>
       <input
         name="age" 
         label="Age"
         id="age"
         v-model="age"
         required
-      /><br />
-      <label for="location">Located in:</label><br />
+      />
+      <label for="location">Located in:</label>
        <input
         name="location"
         label="Location"
         id="location"
         v-model="location"
         required
-      /><br />
-      <label for="description">Description:</label><br />
+      />
+      <label for="description">Description:</label>
        <input
         name="description"
         label="Description"
         id="description"
         v-model="description"
         required
-      /><br />
+      />
       <input type="submit" value="Submit" />
     </form>
   </div>
@@ -49,18 +49,10 @@ export default {
 
         }
     },
-    computed: {
-      formIsValid () {
-        return this.name !== '' &&
-          this.age !== '' &&
-          this.location !== '' &&
-          this.description !== ''
-      },
     methods: {
       onCreatePost () {
-        if (!this.formIsValid) {
-          return
-        }
+    
+        console.log(this.name)
         const postData = {
           name: this.name,
           age: this.age,
@@ -68,10 +60,22 @@ export default {
           description: this.description,
          
         }
-        this.$store.dispatch('createPost', postData)
-        this.$router.push('/posts')}
+        this.$emit('post-submitted', postData)
+        this.name=''
+        this.age=''
+        this.location=''
+        this.description=''
+       /*  this.$store.dispatch('createPost', postData)
+        this.$router.push('/posts')} */
         }
 }}
 </script>
 
-<style></style>
+<style>
+form{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 10rem;
+}
+</style>
