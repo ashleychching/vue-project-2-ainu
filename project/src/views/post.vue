@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="onCreatePost" >
-      <label for="fname">Name of Animal:</label>
+      <label for="name">Name of Animal:</label>
       <input
         name="name"
         label="Name"
@@ -35,11 +35,13 @@
       />
       <input type="submit" value="Submit" />
     </form>
+    
   </div>
 </template>
 
 <script>
 export default {
+  name: "post",
     data(){
         return{
             name:'',
