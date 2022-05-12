@@ -16,6 +16,8 @@
         <div class="icons">
           <span class="material-icons">thumb_up</span>
           <span class="material-icons">thumb_down</span>
+          <Button>hello</Button>
+          <onePost> hiiiii</onePost>
         </div>
       </div>
     </div>
@@ -25,8 +27,10 @@
 <script>
 import { ref } from "vue";
 import navbar from "../components/navbar.vue";
+import Button from "../components/button.vue";
+import onePost from "../components/onePost.vue";
 export default {
-  components: { navbar },
+  components: { navbar,Button, onePost },
   name: "home",
   return:{
     image:null,

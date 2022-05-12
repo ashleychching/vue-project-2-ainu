@@ -1,5 +1,7 @@
 <template>
   <div>
+    <navbar></navbar>
+    <h3>Upload post</h3>
     <form @submit.prevent="onCreatePost" >
       <label for="name">Name of Animal:</label>
       <input
@@ -33,15 +35,27 @@
         v-model="description"
         required
       />
+      <label for="image">Image:</label>
+        <input type="file" 
+    class="uppics" 
+    @click="onPickFile" 
+    accept="image/*"
+    @change="onFilePicked"/>
+    <img :src="imageURL" height="150">
       <input type="submit" value="Submit" />
+  
     </form>
-    
+  
   </div>
 </template>
 
 <script>
+import navbar from "../components/navbar.vue"
 export default {
   name: "post",
+ components:{
+   navbar
+ },
     data(){
         return{
             name:'',
@@ -77,7 +91,7 @@ export default {
 form{
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   margin: 10rem;
 }
 </style>
