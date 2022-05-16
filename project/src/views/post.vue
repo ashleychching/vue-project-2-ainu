@@ -51,6 +51,7 @@
 
 <script>
 import navbar from "../components/navbar.vue"
+import {db, fb} from "../firebase/index.js"
 export default {
   name: "post",
  components:{

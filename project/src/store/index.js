@@ -17,10 +17,13 @@ export default createStore({
     },
     CLEAR_USER(state){
       state.user = null
-    }
-
+    },
+    createPost (state, payload) {
+      state.loadedPosts.push(payload)
+    },
   },
   actions: {
+    
     async login ({ commit }, details) {
       const { email, password } = details
 
