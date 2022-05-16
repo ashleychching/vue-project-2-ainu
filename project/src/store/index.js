@@ -10,12 +10,8 @@ import {
 export default createStore({
   state: {
     user: null
-
   },
   mutations: {
-    createPost (state, payload) {
-      state.loadedPosts.push(payload)
-    },
     SET_USER (state, user){
       state.user = user
     },
@@ -25,15 +21,6 @@ export default createStore({
 
   },
   actions: {
-  createPost({commit}, payload){
-    const post={
-      name: payload.name,
-      age: payload.age,
-      location: payload.location,
-      description: payload.description,
-    }
-    
-  },
     async login ({ commit }, details) {
       const { email, password } = details
 
