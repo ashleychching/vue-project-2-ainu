@@ -21,9 +21,9 @@ const store = createStore({
       // async code
       const res = await createUserWithEmailAndPassword(auth, email, password);
       if (res) {
-        context.commit("setUser", res.user)
+        context.commit("setUser", res.user);
       } else {
-        throw new Error("could not complete signup")
+        throw new Error("could not complete signup");
       }
     },
   },
