@@ -5,6 +5,7 @@ import { auth } from "../firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 const store = createStore({
@@ -40,6 +41,12 @@ const store = createStore({
         throw new Error("could not complete login");
       }
     },
+  },
+  async logout(context) {
+    console.log("logout action");
+
+    await signOut(auth);
+    context.commit("setUser", null);
   },
 });
 
