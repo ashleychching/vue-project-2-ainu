@@ -1,6 +1,9 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <h3>Sign up</h3>
+    <h3>Signup</h3>
+    <p>
+      The email that you use to sign up will be the same one you use to log in.
+    </p>
 
     <label for="email">Email:</label>
     <input type="email" name="email" v-model="email" required />

@@ -1,6 +1,6 @@
 /* font imports */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 /* base styles */
 body {
@@ -19,19 +19,42 @@ nav {
 nav h1 {
   margin-right: auto;
 }
-nav a, nav button, nav span {
+.nav-logo {
+  margin-right: 10px;
+}
+nav a,
+nav button {
   margin-left: 20px;
 }
+
+.thumbs-down {
+  margin-left: 10px;
+}
+
+.logged-identifier {
+  margin-left: 20px;
+}
+
 nav a {
   color: #444;
   text-decoration: none;
   font-weight: bold;
 }
+a:link {
+  color: #9f90cf;
+}
+a:visited {
+  color: #6f6592;
+}
+a:hover {
+  color: #463b6b;
+}
 nav span {
   color: #777;
 }
 button {
-  background:#00dba4;
+  background: #9f90cf;
+  font-family: "Poppins";
   border: 0;
   padding: 6px 10px;
   border-radius: 20px;
@@ -49,7 +72,7 @@ button {
   color: #999;
 }
 .blog h3 {
-  color: #00dba4;
+  color: #9f90cf;
 }
 .blog .icons {
   color: #555;
@@ -58,9 +81,14 @@ button {
   align-items: center;
   font-size: 0.9em;
 }
-.blog .icons .material-icons {
+.blog {
   font-size: 1em;
   margin-left: 10px;
+  cursor: pointer;
+}
+.material-icons,
+.icons {
+  font-size: 1em;
   cursor: pointer;
 }
 .blog .icons .material-icons:hover {
