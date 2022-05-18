@@ -51,7 +51,8 @@
 
 <script>
 import navbar from "../components/navbar.vue"
-import {db} from "../firebase/index"
+/* import {db} from "../firebase/index" 
+import { collection, addDoc } from "firebase/firestore";  */
 export default {
   name: "post",
  components:{
@@ -67,6 +68,7 @@ export default {
         }
     },
     methods: {
+      test(){},
       onCreatePost () {
     
         console.log(this.name)
