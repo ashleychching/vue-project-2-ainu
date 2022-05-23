@@ -35,13 +35,13 @@
         v-model="description"
         required
       />
-      <label for="image">Image:</label>
+     <!--  <label for="image">Image:</label>
         <input type="file" 
     class="uppics" 
     @click="onPickFile" 
     accept="image/*"
     @change="onFilePicked"/>
-    <img :src="imageURL" height="150">
+    <img :src="imageURL" height="150"> -->
       <input type="submit" value="Submit" />
   
     </form>
@@ -62,47 +62,37 @@ export default {
  },
     data(){
         return{
-            name:null,
-            age: null,
-            location:null,
-            description:null,
+            name:"",
+            age: "",
+            location:"",
+            description:"",
+            animal:{}
 
         }
     },
     methods: {
-      test(){},
+      test(){
+        console.log(this.name)
+      },
       onCreatePost () {
+        let name = this.name
+        let age = this.age
+        let location = this.location
+        let description = this.description
     async function add(){
-const docRef = await addDoc(collection(db, "animals"), {
-  name: this.name,
-  age: this.age,
-  location: this.location,
-  description: this.description,
-});
+      console.log(name)
+
+ const docRef = await addDoc(collection(db, "animals"), {
+  name: name,
+  age: age,
+  location: location,
+  description: description,
+}); 
 console.log("Document written with ID: ", docRef.id);
  }
  add()
     },
-    methods: {
-     /*  test(){}, */
-     add(){},
-     
-       /*  console.log(this.name)
-        const postData = {
-          name: this.name,
-          age: this.age,
-          location: this.location,
-          description: this.description,
-         
-        }
-        this.$emit('post-submitted', postData)
-        this.name=''
-        this.age=''
-        this.location=''
-        this.description='' */
-       /*  this.$store.dispatch('createPost', postData)
-        this.$router.push('/posts')} */
-        }
+    
 }}
 </script>
 
