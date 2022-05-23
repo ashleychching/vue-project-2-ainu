@@ -25,26 +25,12 @@
 <script>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import {db} from "../firebase/index" 
-import { doc, getDoc } from "firebase/firestore";
 export default {
   setup() {
     const login_form = ref({});
     const store = useStore();
     const login = () => {
       store.dispatch("login", login_form.value);
-      async function test(){
-const docRef = doc(db, "cities", "SF");
-const docSnap = await getDoc(docRef);
-
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // doc.data() will be undefined in this case
-  console.log("No such document!");
-}
-        }
-        test()
     };
     return {
       login_form,

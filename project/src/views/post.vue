@@ -51,6 +51,8 @@
 
 <script>
 import navbar from "../components/navbar.vue"
+import {db} from "../firebase/index" 
+import { collection, addDoc } from "firebase/firestore";
 /* import {db} from "../firebase/index" 
 import { collection, addDoc } from "firebase/firestore";  */
 export default {
@@ -60,18 +62,32 @@ export default {
  },
     data(){
         return{
-            name:'',
-            age: '',
-            location:'',
-            description:'',
+            name:null,
+            age: null,
+            location:null,
+            description:null,
 
         }
     },
     methods: {
       test(){},
       onCreatePost () {
-    
-        console.log(this.name)
+    async function add(){
+const docRef = await addDoc(collection(db, "animals"), {
+  name: this.name,
+  age: this.age,
+  location: this.location,
+  description: this.description,
+});
+console.log("Document written with ID: ", docRef.id);
+ }
+ add()
+    },
+    methods: {
+     /*  test(){}, */
+     add(){},
+     
+       /*  console.log(this.name)
         const postData = {
           name: this.name,
           age: this.age,
@@ -83,7 +99,7 @@ export default {
         this.name=''
         this.age=''
         this.location=''
-        this.description=''
+        this.description='' */
        /*  this.$store.dispatch('createPost', postData)
         this.$router.push('/posts')} */
         }
