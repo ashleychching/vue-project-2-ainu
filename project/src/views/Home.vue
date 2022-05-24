@@ -8,29 +8,16 @@
     accept="image/*"
     @change="onFilePicked"/>
     <img :src="imageURL" height="150">
-  
-    <div v-for="blog in blogs" :key="blog.id">
-      <div class="blog">
-        <h2>{{ blog.title }}</h2>
-        <p>ufjksahjdskha fdsklaj jfdsklan jakf oa skee</p>
-        <div class="icons">
-          <span class="material-icons">thumb_up</span>
-          <span class="material-icons">thumb_down</span>
-          <Button>hello</Button>
-          <onePost> hiiiii</onePost>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
 import navbar from "../components/navbar.vue";
-import Button from "../components/button.vue";
-import onePost from "../components/onePost.vue";
+
 export default {
-  components: { navbar,Button, onePost },
+  components: { navbar, },
   name: "home",
   return:{
     image:null,
@@ -53,7 +40,11 @@ export default {
       })
       fileReader.readAsDataURL(files[0])
       this.image = files[0]
-    } 
+    } ,
+    
+    mounted(){
+
+    }
   },
   setup() {
     const blogs = ref([
