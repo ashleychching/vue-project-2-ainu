@@ -3,7 +3,9 @@
     <ul>
       <div class="navgroupings">
         <li>
-          <router-link to="/Home"><img src="../assets/Logo.png" alt="" /></router-link>
+          <router-link to="/"
+            ><img src="../assets/Logo.png" alt=""
+          /></router-link>
         </li>
         <!-- <li>
           <input
@@ -55,7 +57,13 @@ ul {
 }
 .navbtn {
   font-size: 2rem;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #9f90cf;
+  border-radius: 0.8rem;
+  color: #fff;
 }
 .logo {
   font-size: 2rem;

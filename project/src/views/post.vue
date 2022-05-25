@@ -1,37 +1,40 @@
 <template>
   <div>
     <navbar></navbar>
-    <h3>Upload post</h3>
-    <form @submit.prevent="onCreatePost">
-      <label for="name">Name of Animal:</label>
-      <input name="name" label="Name" id="name" v-model="name" required />
-      <label for="age">Age:</label>
-      <input name="age" label="Age" id="age" v-model="age" required />
-      <label for="location">Located in:</label>
-      <input
-        name="location"
-        label="Location"
-        id="location"
-        v-model="location"
-        required
-      />
-      <label for="description">Description:</label>
-      <input
-        name="description"
-        label="Description"
-        id="description"
-        v-model="description"
-        required
-      />
-      <!--  <label for="image">Image:</label>
-        <input type="file" 
-    class="uppics" 
-    @click="onPickFile" 
-    accept="image/*"
-    @change="onFilePicked"/>
-    <img :src="imageURL" height="150"> -->
-      <input type="submit" value="Submit" />
-    </form>
+    <div class="pg">
+      <h3>Upload post</h3>
+      <form @submit.prevent="onCreatePost">
+        <label for="name">Name of Animal:</label>
+        <input name="name" label="Name" id="name" v-model="name" required />
+        <label for="age">Age:</label>
+        <input name="age" label="Age" id="age" v-model="age" required />
+        <label for="location">Located in:</label>
+        <input
+          name="location"
+          label="Location"
+          id="location"
+          v-model="location"
+          required
+        />
+        <label for="description">Description:</label>
+        <input
+          name="description"
+          label="Description"
+          id="description"
+          v-model="description"
+          required
+          class="lastbutton"
+        />
+        <!--  <label for="image">Image:</label>
+          <input type="file"
+      class="uppics"
+      @click="onPickFile"
+      accept="image/*"
+      @change="onFilePicked"/>
+      <img :src="imageURL" height="150"> -->
+        <input type="submit" value="Submit" class="submitbtn"/>
+      </form>
+    </div>
     <ul id="animalList"></ul>
   </div>
 </template>
@@ -92,5 +95,22 @@ form {
   flex-direction: column;
   font-size: 3rem;
   width: 40%;
+}
+h3 {
+  margin-bottom: 2rem;
+}
+.pg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lastbutton {
+  margin-bottom: 2rem;
+}
+.submitbtn {
+  height: 5rem;
+  background: #4285f4;
+  border-radius: .8rem;
+  color: #fff;
 }
 </style>

@@ -1,11 +1,14 @@
 <template>
   <div>
     <navbar></navbar>
-    <div>
+    <div class="bigcontain">
       <ul class="listy">
-        <div v-for="animal in animals" :key="animal.id">
+        <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>
-            <p>{{ animal.name }}</p>
+            <p>name: {{ animal.name }}</p>
+            <p>age: {{ animal.age }}</p>
+            <p>location: {{ animal.location }}</p>
+            <p>description: {{ animal.description }}</p>
           </div>
         </div>
       </ul>
@@ -95,6 +98,10 @@ export default {
 </script>
 
 <style scoped>
+.bigcontain {
+  display: flex;
+  justify-content: center;
+}
 .uppics {
   font-size: 1rem;
 }
@@ -103,6 +110,14 @@ form {
 }
 .listy {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.thing-in-listy {
+  margin: 2rem;
+  width: 32rem;
+  height: 32rem;
+  border: dashed red;
 }
 </style>
