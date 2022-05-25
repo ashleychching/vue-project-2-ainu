@@ -45,7 +45,9 @@
       <input type="submit" value="Submit" />
   
     </form>
-  
+  <ul id="animalList">
+
+  </ul>
   </div>
 </template>
 
@@ -91,6 +93,10 @@ export default {
 console.log("Document written with ID: ", docRef.id);
  }
  add()
+  this.name=''
+        this.age=''
+        this.location=''
+        this.description=''
     },
     
 }}

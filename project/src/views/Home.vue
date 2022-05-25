@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+<div>
+<div class="home">
     <navbar></navbar>
     <h3>Upload post</h3>
     <input type="file" 
@@ -8,23 +9,56 @@
     accept="image/*"
     @change="onFilePicked"/>
     <img :src="imageURL" height="150">
-
   </div>
+<div>
+  <ul class="listy">
+<li
+v-for= "animal in animals"
+:key="animal.id"
+>
+{{animal.name}}
+</li>
+  </ul>
+</div>
+</div>
+  
 </template>
 
 <script>
+import animalsColRef from "../firebase";
+import { getDocs} from "firebase/firestore";
 import { ref } from "vue";
 import navbar from "../components/navbar.vue";
-
+/*  import card from "../components/card.vue";  */
+/* import {db} from "../firebase/index" */
 export default {
-  components: { navbar, },
+  components: { navbar,/* card */ },
   name: "home",
   return:{
     image:null,
     imageUrl:'', 
+    animals:[],
 
   },
   methods:{
+   /*  mounted(){
+      console.log('hello')
+    }, */
+       mounted(){
+      console.log("hi")
+  async function fetchAnimals(){
+      let animalsSnapshot= await getDocs(animalsColRef);
+      let animals= [];
+      animalsSnapshot.forEach((animal)=>{
+        let animalData=animal.data();
+        animalData.id= animal.id;
+        animals.push(animalData);
+      })
+      console.log(animals);
+      this.animals=animals;
+    }
+    fetchAnimals()
+    }, 
     onPickFile(){
       this.uppics.click()
     },
@@ -41,10 +75,7 @@ export default {
       fileReader.readAsDataURL(files[0])
       this.image = files[0]
     } ,
-    
-    mounted(){
-
-    }
+ 
   },
   setup() {
     const blogs = ref([

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore,collection } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -18,4 +18,6 @@ const auth = getAuth(app);
 
 const db = getFirestore(app);
 
+const animalsColRef= collection(db,"animals")
 export { auth, db}
+export default animalsColRef;
