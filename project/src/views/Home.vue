@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="bigHome">
 <div class="home">
     <navbar></navbar>
     <h3>Upload post</h3>
@@ -12,12 +12,12 @@
   </div>
 <div>
   <ul class="listy">
-<h1
+<h3
 v-for= "animal in animals"
 :key="animal.id"
 >
 {{animal.id}}
-</h1>
+</h3>
   </ul>
 </div>
 </div>
@@ -116,4 +116,9 @@ created(){
 form{
   font-size: 3rem;
 }
+.listy{
+  display: flex;
+  flex-direction: column;
+}
+
 </style>
