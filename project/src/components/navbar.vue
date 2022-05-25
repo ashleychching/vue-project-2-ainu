@@ -3,7 +3,7 @@
     <ul>
       <div class="navgroupings">
         <li>
-          <img src="../assets/Logo.png" alt="" />
+          <router-link to="/Home"><img src="../assets/Logo.png" alt="" /></router-link>
         </li>
         <!-- <li>
           <input
