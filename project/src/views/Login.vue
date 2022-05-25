@@ -54,8 +54,13 @@ label,
 input,
 button {
   height: 6rem;
-  width: 65vw;
+  width: 20vw;
   font-size: 2rem;
+  border-radius: 1rem;
+}
+
+input {
+  padding: 1rem;
 }
 
 .login {
@@ -79,7 +84,7 @@ button {
   margin-top: 1rem;
   background: var(--signcolor);
   color: #fff;
-  border-radius: 1.3rem;
+  border-radius: 1rem;
   border-style: none;
 }
 </style>

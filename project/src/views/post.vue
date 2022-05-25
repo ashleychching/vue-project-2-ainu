@@ -2,25 +2,13 @@
   <div>
     <navbar></navbar>
     <h3>Upload post</h3>
-    <form @submit.prevent="onCreatePost" >
+    <form @submit.prevent="onCreatePost">
       <label for="name">Name of Animal:</label>
-      <input
-        name="name"
-        label="Name"
-        id="name"
-        v-model="name"
-        required
-      />
+      <input name="name" label="Name" id="name" v-model="name" required />
       <label for="age">Age:</label>
-      <input
-        name="age" 
-        label="Age"
-        id="age"
-        v-model="age"
-        required
-      />
+      <input name="age" label="Age" id="age" v-model="age" required />
       <label for="location">Located in:</label>
-       <input
+      <input
         name="location"
         label="Location"
         id="location"
@@ -28,14 +16,14 @@
         required
       />
       <label for="description">Description:</label>
-       <input
+      <input
         name="description"
         label="Description"
         id="description"
         v-model="description"
         required
       />
-     <!--  <label for="image">Image:</label>
+      <!--  <label for="image">Image:</label>
         <input type="file" 
     class="uppics" 
     @click="onPickFile" 
@@ -43,70 +31,66 @@
     @change="onFilePicked"/>
     <img :src="imageURL" height="150"> -->
       <input type="submit" value="Submit" />
-  
     </form>
-  <ul id="animalList">
-
-  </ul>
+    <ul id="animalList"></ul>
   </div>
 </template>
 
 <script>
-import navbar from "../components/navbar.vue"
-import {db} from "../firebase/index" 
+import navbar from "../components/navbar.vue";
+import { db } from "../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 /* import {db} from "../firebase/index" 
 import { collection, addDoc } from "firebase/firestore";  */
 export default {
   name: "post",
- components:{
-   navbar
- },
-    data(){
-        return{
-            name:"",
-            age: "",
-            location:"",
-            description:"",
-            animal:{}
-
-        }
+  components: {
+    navbar,
+  },
+  data() {
+    return {
+      name: "",
+      age: "",
+      location: "",
+      description: "",
+      animal: {},
+    };
+  },
+  methods: {
+    test() {
+      console.log(this.name);
     },
-    methods: {
-      test(){
-        console.log(this.name)
-      },
-      onCreatePost () {
-        let name = this.name
-        let age = this.age
-        let location = this.location
-        let description = this.description
-    async function add(){
-      console.log(name)
+    onCreatePost() {
+      let name = this.name;
+      let age = this.age;
+      let location = this.location;
+      let description = this.description;
+      async function add() {
+        console.log(name);
 
- const docRef = await addDoc(collection(db, "animals"), {
-  name: name,
-  age: age,
-  location: location,
-  description: description,
-}); 
-console.log("Document written with ID: ", docRef.id);
- }
- add()
-  this.name=''
-        this.age=''
-        this.location=''
-        this.description=''
+        const docRef = await addDoc(collection(db, "animals"), {
+          name: name,
+          age: age,
+          location: location,
+          description: description,
+        });
+        console.log("Document written with ID: ", docRef.id);
+      }
+      add();
+      this.name = "";
+      this.age = "";
+      this.location = "";
+      this.description = "";
     },
-    
-}}
+  },
+};
 </script>
 
-<style>
-form{
+<style scoped>
+form {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: 10rem;
+  font-size: 3rem;
+  width: 40%;
 }
 </style>

@@ -1,27 +1,19 @@
 <template>
-  <div>
-    
-  
-  </div>
+  <div></div>
 </template>
 
 <script>
-import {db} from "../firebase/index" 
+import { db } from "../firebase/index";
 /* import { doc, getDoc } from "firebase/firestore"; */
 import { collection, addDoc } from "firebase/firestore";
 export default {
   name: "post",
- components:{
-  
- },
-    data(){
-        return{
-           
-
-        }
-    },
-    mounted(){
-     /*    async function test(){
+  components: {},
+  data() {
+    return {};
+  },
+  mounted() {
+    /*    async function test(){
 const docRef = doc(db, "animals", "2");
 const docSnap = await getDoc(docRef);
 
@@ -33,24 +25,24 @@ if (docSnap.exists()) {
 }
         }
         test() */
- async function add(){
-const docRef = await addDoc(collection(db, "animals"), {
-  name: "Tokyo",
-  age: "9"
-});
-console.log("Document written with ID: ", docRef.id);
- }
- add()
-    },
-    methods: {
-     /*  test(){}, */
-     add(){},
-     
-}}
+    async function add() {
+      const docRef = await addDoc(collection(db, "animals"), {
+        name: "Tokyo",
+        age: "9",
+      });
+      console.log("Document written with ID: ", docRef.id);
+    }
+    add();
+  },
+  methods: {
+    /*  test(){}, */
+    add() {},
+  },
+};
 </script>
 
 <style>
-form{
+form {
   display: flex;
   flex-direction: column;
   width: 50%;
