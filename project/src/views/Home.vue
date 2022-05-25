@@ -12,12 +12,12 @@
   </div>
 <div>
   <ul class="listy">
-<li
+<h1
 v-for= "animal in animals"
 :key="animal.id"
 >
-{{animal.name}}
-</li>
+{{animal.id}}
+</h1>
   </ul>
 </div>
 </div>
@@ -27,24 +27,42 @@ v-for= "animal in animals"
 <script>
 import animalsColRef from "../firebase";
 import { getDocs} from "firebase/firestore";
-import { ref } from "vue";
+//import { ref } from "vue";
 import navbar from "../components/navbar.vue";
 /*  import card from "../components/card.vue";  */
 /* import {db} from "../firebase/index" */
 export default {
   components: { navbar,/* card */ },
   name: "home",
-  return:{
+  data(){
+return{
     image:null,
     imageUrl:'', 
-    animals:[],
+   animals:null
 
+  }
   },
+  
+created(){
+      console.log("hi")
+
+    this.fetchAnimals()
+    },
   methods:{
-   /*  mounted(){
-      console.log('hello')
-    }, */
-       mounted(){
+       async fetchAnimals(){
+      let animalsSnapshot= await getDocs(animalsColRef);
+      let animals= [];
+      animalsSnapshot.forEach((animal)=>{
+        let animalData=animal.data();
+        animalData.id= animal.id;
+        animals.push(animalData);
+      })
+ this.animals = animals
+          console.log(animals);
+
+            
+    },
+      /*  mounted(){
       console.log("hi")
   async function fetchAnimals(){
       let animalsSnapshot= await getDocs(animalsColRef);
@@ -58,7 +76,7 @@ export default {
       this.animals=animals;
     }
     fetchAnimals()
-    }, 
+    },  */
     onPickFile(){
       this.uppics.click()
     },
@@ -77,16 +95,17 @@ export default {
     } ,
  
   },
-  setup() {
+  /* setup() {
+    const animals = null;
     const blogs = ref([
       { title: "Why Coffee is Better than Tea", id: 1 },
       { title: "...Then I Took an Arrow in the Knee", id: 2 },
       { title: "Mario vs Luigi, Ultimate Showdown", id: 3 },
     ]);
     return {
-      blogs,
+      blogs, animals
     };
-  },
+  }, */
 };
 </script>
 
