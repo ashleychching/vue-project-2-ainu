@@ -1,34 +1,16 @@
 <template>
-<<<<<<< HEAD
   <div>
-=======
-<div class="bigHome">
-<div class="home">
->>>>>>> b9507c12f66e3618bf528d73ea6914e64eaad108
     <navbar></navbar>
     <div>
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id">
-        <div><p>{{ animal.name }}</p></div>
+          <div>
+            <p>{{ animal.name }}</p>
+          </div>
         </div>
       </ul>
     </div>
   </div>
-<<<<<<< HEAD
-=======
-<div>
-  <ul class="listy">
-<h3
-v-for= "animal in animals"
-:key="animal.id"
->
-{{animal.id}}
-</h3>
-  </ul>
-</div>
-</div>
-  
->>>>>>> b9507c12f66e3618bf528d73ea6914e64eaad108
 </template>
 
 <script>
@@ -119,9 +101,8 @@ export default {
 form {
   font-size: 3rem;
 }
-.listy{
+.listy {
   display: flex;
   flex-direction: column;
 }
-
 </style>
