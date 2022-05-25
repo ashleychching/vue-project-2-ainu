@@ -1,15 +1,21 @@
 <template>
+<<<<<<< HEAD
+  <div>
+=======
 <div class="bigHome">
 <div class="home">
+>>>>>>> b9507c12f66e3618bf528d73ea6914e64eaad108
     <navbar></navbar>
-    <h3>Upload post</h3>
-    <input type="file" 
-    class="uppics" 
-    @click="onPickFile" 
-    accept="image/*"
-    @change="onFilePicked"/>
-    <img :src="imageURL" height="150">
+    <div>
+      <ul class="listy">
+        <div v-for="animal in animals" :key="animal.id">
+        <div><p>{{ animal.name }}</p></div>
+        </div>
+      </ul>
+    </div>
   </div>
+<<<<<<< HEAD
+=======
 <div>
   <ul class="listy">
 <h3
@@ -22,49 +28,47 @@ v-for= "animal in animals"
 </div>
 </div>
   
+>>>>>>> b9507c12f66e3618bf528d73ea6914e64eaad108
 </template>
 
 <script>
 import animalsColRef from "../firebase";
-import { getDocs} from "firebase/firestore";
+import { getDocs } from "firebase/firestore";
 //import { ref } from "vue";
 import navbar from "../components/navbar.vue";
 /*  import card from "../components/card.vue";  */
 /* import {db} from "../firebase/index" */
 export default {
-  components: { navbar,/* card */ },
+  components: { navbar /* card */ },
   name: "home",
-  data(){
-return{
-    image:null,
-    imageUrl:'', 
-   animals:null
-
-  }
+  data() {
+    return {
+      image: null,
+      imageUrl: "",
+      animals: null,
+    };
   },
-  
-created(){
-      console.log("hi")
 
-    this.fetchAnimals()
-    },
-  methods:{
-       async fetchAnimals(){
-      let animalsSnapshot= await getDocs(animalsColRef);
-      let animals= [];
-      animalsSnapshot.forEach((animal)=>{
-        let animalData=animal.data();
-        animalData.id= animal.id;
+  created() {
+    console.log("hi");
+
+    this.fetchAnimals();
+  },
+  methods: {
+    async fetchAnimals() {
+      let animalsSnapshot = await getDocs(animalsColRef);
+      let animals = [];
+      animalsSnapshot.forEach((animal) => {
+        let animalData = animal.data();
+        animalData.id = animal.id;
         animals.push(animalData);
-      })
- this.animals = animals
-          console.log(animals);
-
-            
+      });
+      this.animals = animals;
+      console.log(animals);
     },
-      /*  mounted(){
+    /*  mounted(){
       console.log("hi")
-  async function fetchAnimals(){
+      async function fetchAnimals(){
       let animalsSnapshot= await getDocs(animalsColRef);
       let animals= [];
       animalsSnapshot.forEach((animal)=>{
@@ -77,23 +81,22 @@ created(){
     }
     fetchAnimals()
     },  */
-    onPickFile(){
-      this.uppics.click()
+    onPickFile() {
+      this.uppics.click();
     },
-     onFilePicked(event){
-      const files= event.target.files
-      let filename= files[0].name
-      if (filename.lastIndexOf('.')<= 0){
-        return alert('Please add a valid file!')
+    onFilePicked(event) {
+      const files = event.target.files;
+      let filename = files[0].name;
+      if (filename.lastIndexOf(".") <= 0) {
+        return alert("Please add a valid file!");
       }
-      const fileReader = new FileReader()
-      fileReader.addEventListener('load', ()=> {
-        this.image= fileReader.result
-      })
-      fileReader.readAsDataURL(files[0])
-      this.image = files[0]
-    } ,
- 
+      const fileReader = new FileReader();
+      fileReader.addEventListener("load", () => {
+        this.image = fileReader.result;
+      });
+      fileReader.readAsDataURL(files[0]);
+      this.image = files[0];
+    },
   },
   /* setup() {
     const animals = null;
@@ -109,11 +112,11 @@ created(){
 };
 </script>
 
-<style>
+<style scoped>
 .uppics {
-  font-size: 3rem;
+  font-size: 1rem;
 }
-form{
+form {
   font-size: 3rem;
 }
 .listy{
