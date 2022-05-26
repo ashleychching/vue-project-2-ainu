@@ -83,7 +83,7 @@ export default createStore({
 
       commit("CLEAR_USER");
 
-      router.push("/login");
+      router.push("/login2");
     },
 
     fetchUser({ commit }) {

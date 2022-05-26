@@ -51,21 +51,7 @@ export default {
       this.animals = animals;
       console.log(animals);
     },
-    /*  mounted(){
-      console.log("hi")
-      async function fetchAnimals(){
-      let animalsSnapshot= await getDocs(animalsColRef);
-      let animals= [];
-      animalsSnapshot.forEach((animal)=>{
-        let animalData=animal.data();
-        animalData.id= animal.id;
-        animals.push(animalData);
-      })
-      console.log(animals);
-      this.animals=animals;
-    }
-    fetchAnimals()
-    },  */
+
     onPickFile() {
       this.uppics.click();
     },
