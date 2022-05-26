@@ -25,13 +25,13 @@
           required
           class="lastbutton"
         />
-        <!--  <label for="image">Image:</label>
+         <label for="image">Image:</label>
           <input type="file"
       class="uppics"
       @click="onPickFile"
       accept="image/*"
-      @change="onFilePicked"/>
-      <img :src="imageURL" height="150"> -->
+      @change="uploadImage"/>
+      <img :src="imageURL" height="150">
         <input type="submit" value="Submit" class="submitbtn"/>
       </form>
     </div>
@@ -41,7 +41,7 @@
 
 <script>
 import navbar from "../components/navbar.vue";
-import { db } from "../firebase/index";
+import { db, app} from "../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 /* import {db} from "../firebase/index" 
 import { collection, addDoc } from "firebase/firestore";  */
@@ -57,6 +57,7 @@ export default {
       location: "",
       description: "",
       animal: {},
+      image:[],
     };
   },
   methods: {
@@ -85,8 +86,31 @@ export default {
       this.location = "";
       this.description = "";
     },
+   uploadImage(e){
+      if(e.target.files[0]){
+        
+          let file = e.target.files[0];
+    
+          var storageRef = app.storage().ref('products/'+ Math.random() + '_'  + file.name);
+    
+          let uploadTask  = storageRef.put(file);
+    
+          uploadTask.on('state_changed', (snapshot) => {
+            
+          }, (error) => {
+            // Handle unsuccessful uploads
+          }, () => {
+            // Handle successful uploads on complete
+            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+              this.product.images.push(downloadURL);
+            });
+          });
+      }}
+
   },
-};
+}
 </script>
 
 <style scoped>
