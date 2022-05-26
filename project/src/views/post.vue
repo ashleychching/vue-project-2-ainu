@@ -41,7 +41,7 @@
 
 <script>
 import navbar from "../components/navbar.vue";
-import { db, app} from "../firebase/index";
+import { db} from "../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 /* import {db} from "../firebase/index" 
 import { collection, addDoc } from "firebase/firestore";  */
@@ -86,7 +86,7 @@ export default {
       this.location = "";
       this.description = "";
     },
-   uploadImage(e){
+   /* uploadImage(e){
       if(e.target.files[0]){
         
           let file = e.target.files[0];
@@ -107,7 +107,7 @@ export default {
               this.product.images.push(downloadURL);
             });
           });
-      }}
+      }} */
 
   },
 }
