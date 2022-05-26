@@ -87,6 +87,9 @@ export default {
       this.description = "";
     },
     uploadImage(e){
+      let file= e.target.files[0]
+      const storage = getStorage().ref('animals');
+
       console.log(e.target.files[0]);
     },
 
