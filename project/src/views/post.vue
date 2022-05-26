@@ -86,6 +86,10 @@ export default {
       this.location = "";
       this.description = "";
     },
+    uploadImage(e){
+      console.log(e.target.files[0]);
+    },
+
    /* uploadImage(e){
       if(e.target.files[0]){
         
