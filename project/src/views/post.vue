@@ -32,12 +32,13 @@
           accept="image/*"
           @change="uploadImage"
         />
-        <img :src="imageURL" height="150px" />
         <input type="submit" value="Submit" class="submitbtn" />
       </form>
     </div>
     <ul id="animalList"></ul>
+            <img :src="getDaImg" class="img" :key="img"/>
   </div>
+  
 </template>
 
 <script>
@@ -66,6 +67,8 @@ export default {
       description: "",
       animal: {},
       image: [],
+      img: null,
+      
     };
   },
   methods: {
@@ -107,10 +110,18 @@ export default {
         console.log("Uploaded a raw string!", snapshot);
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
+          this.img = downloadURL
         });
       });
+    
+        
     },
   },
+  computed:{
+    getDaImg: function(){
+      return this.img;
+    }
+  }
 };
 </script>
 
@@ -123,6 +134,11 @@ form {
 }
 h3 {
   margin-bottom: 2rem;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
 }
 .pg {
   display: flex;
