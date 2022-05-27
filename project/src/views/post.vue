@@ -28,7 +28,6 @@
          <label for="image">Image:</label>
           <input type="file"
       class="uppics"
-      @click="onPickFile"
       accept="image/*"
       @change="uploadImage"/>
       <img :src="imageURL" height="150">
@@ -42,6 +41,7 @@
 <script>
 import navbar from "../components/navbar.vue";
 import { db} from "../firebase/index";
+import { getStorage, ref, uploadString } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 /* import {db} from "../firebase/index" 
 import { collection, addDoc } from "firebase/firestore";  */
@@ -61,9 +61,6 @@ export default {
     };
   },
   methods: {
-    test() {
-      console.log(this.name);
-    },
     onCreatePost() {
       let name = this.name;
       let age = this.age;
@@ -88,9 +85,13 @@ export default {
     },
     uploadImage(e){
       let file= e.target.files[0]
-      const storage = getStorage().ref('animals');
+      const storage= getStorage();
+      const storageRef = ref(storage, 'animals/'+ Math.random()+ '_' + file.name);
+      const message= 'This the messsage';
+      uploadString(storageRef, message).then((snapshot) => {
+  console.log('Uploaded a raw string!',snapshot);
 
-      console.log(e.target.files[0]);
+});
     },
 
    /* uploadImage(e){
