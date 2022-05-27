@@ -25,13 +25,15 @@
           required
           class="lastbutton"
         />
-         <label for="image">Image:</label>
-          <input type="file"
-      class="uppics"
-      accept="image/*"
-      @change="uploadImage"/>
-      <img :src="imageURL" height="150">
-        <input type="submit" value="Submit" class="submitbtn"/>
+        <label for="image">Image:</label>
+        <input
+          type="file"
+          class="uppics"
+          accept="image/*"
+          @change="uploadImage"
+        />
+        <img :src="imageURL" height="150px" />
+        <input type="submit" value="Submit" class="submitbtn" />
       </form>
     </div>
     <ul id="animalList"></ul>
@@ -40,8 +42,14 @@
 
 <script>
 import navbar from "../components/navbar.vue";
-import { db} from "../firebase/index";
-import { getStorage, ref, uploadString } from "firebase/storage";
+import { db } from "../firebase/index";
+import {
+  getStorage,
+  ref,
+  uploadString,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 /* import {db} from "../firebase/index" 
 import { collection, addDoc } from "firebase/firestore";  */
@@ -57,7 +65,7 @@ export default {
       location: "",
       description: "",
       animal: {},
-      image:[],
+      image: [],
     };
   },
   methods: {
@@ -83,42 +91,27 @@ export default {
       this.location = "";
       this.description = "";
     },
-    uploadImage(e){
-      let file= e.target.files[0]
-      const storage= getStorage();
-      const storageRef = ref(storage, 'animals/'+ Math.random()+ '_' + file.name);
-      const message= 'This the messsage';
+    uploadImage(e) {
+      let file = e.target.files[0];
+      const storage = getStorage();
+      const storageRef = ref(
+        storage,
+        "animals/" + Math.random() + "_" + file.name
+      );
+      const metadata = {
+        contentType: "image/jpeg",
+      };
+      const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+      const message = "This the messsage";
       uploadString(storageRef, message).then((snapshot) => {
-  console.log('Uploaded a raw string!',snapshot);
-
-});
+        console.log("Uploaded a raw string!", snapshot);
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+        });
+      });
     },
-
-   /* uploadImage(e){
-      if(e.target.files[0]){
-        
-          let file = e.target.files[0];
-    
-          var storageRef = app.storage().ref('products/'+ Math.random() + '_'  + file.name);
-    
-          let uploadTask  = storageRef.put(file);
-    
-          uploadTask.on('state_changed', (snapshot) => {
-            
-          }, (error) => {
-            // Handle unsuccessful uploads
-          }, () => {
-            // Handle successful uploads on complete
-            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-            
-            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-              this.product.images.push(downloadURL);
-            });
-          });
-      }} */
-
   },
-}
+};
 </script>
 
 <style scoped>
@@ -142,7 +135,7 @@ h3 {
 .submitbtn {
   height: 5rem;
   background: #4285f4;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
   color: #fff;
 }
 </style>
