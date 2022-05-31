@@ -22,9 +22,9 @@ import { getDocs } from "firebase/firestore";
 //import { ref } from "vue";
 import navbar from "../components/navbar.vue";
 /*  import card from "../components/card.vue";  */
-/* import {db} from "../firebase/index" */
+/*  import {db, doc, deleteDoc} from "../firebase/index"  */
 export default {
-  components: { navbar /* card */ },
+  components: { navbar,  /* card */ },
   name: "home",
   data() {
     return {
@@ -52,21 +52,7 @@ export default {
       console.log(animals);
     },
 
-
-    onFilePicked(event) {
-      const files = event.target.files;
-      let filename = files[0].name;
-      if (filename.lastIndexOf(".") <= 0) {
-        return alert("Please add a valid file!");
-      }
-      const fileReader = new FileReader();
-      fileReader.addEventListener("load", () => {
-        this.image = fileReader.result;
-      });
-      fileReader.readAsDataURL(files[0]);
-      this.image = files[0];
-    },
-  },
+  }}
   /* setup() {
     const animals = null;
     const blogs = ref([
@@ -78,7 +64,6 @@ export default {
       blogs, animals
     };
   }, */
-};
 </script>
 
 <style scoped>
@@ -104,4 +89,5 @@ form {
   height: 32rem;
   border: dashed red;
 }
+
 </style>

@@ -100,7 +100,6 @@ export default {
       console.log(image)
       async function add() {
         console.log(name);
-
         const docRef = await addDoc(collection(db, "animals"), {
           name: name,
           age: age,
