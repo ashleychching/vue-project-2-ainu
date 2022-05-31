@@ -88,8 +88,9 @@ export default {
         console.log("Uploaded a raw string!", snapshot);
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
-          this.imgURL = URL.createObjectURL(file);
-          console.log(downloadURL)
+        //  = URL.createObjectURL(file);
+           this.imgURL = downloadURL
+          console.log(this.imgURL)
         });
       });
     },

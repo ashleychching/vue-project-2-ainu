@@ -51,6 +51,7 @@ export default {
       });
       this.animals = animals;
       console.log(animals);
+      
     },
   },
 };
