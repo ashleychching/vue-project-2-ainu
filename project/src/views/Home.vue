@@ -9,7 +9,7 @@
             <p>Age: {{ animal.age }}</p>
             <p>Location: {{ animal.location }}</p>
             <p>Description: {{ animal.description }}</p>
-            <img :src="this.imgURL" class="img" :key="img" />
+            <img src="" alt="" />
           </div>
         </div>
       </ul>
@@ -39,7 +39,7 @@ export default {
     console.log("hi");
     this.fetchAnimals();
   },
-  
+
   methods: {
     async fetchAnimals() {
       let animalsSnapshot = await getDocs(animalsColRef);
@@ -51,7 +51,6 @@ export default {
       });
       this.animals = animals;
       console.log(animals);
-      
     },
   },
 };
