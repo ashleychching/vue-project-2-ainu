@@ -65,33 +65,11 @@ export default {
       location: "",
       description: "",
       animal: {},
-      image: [],
+      image: "",
       imgURL: undefined,
     };
   },
   methods: {
-    onCreatePost() {
-      let name = this.name;
-      let age = this.age;
-      let location = this.location;
-      let description = this.description;
-      async function add() {
-        console.log(name);
-
-        const docRef = await addDoc(collection(db, "animals"), {
-          name: name,
-          age: age,
-          location: location,
-          description: description,
-        });
-        console.log("Document written with ID: ", docRef.id);
-      }
-      add();
-      this.name = "";
-      this.age = "";
-      this.location = "";
-      this.description = "";
-    },
     uploadImage(e) {
       let file = e.target.files[0];
       const storage = getStorage();
@@ -112,11 +90,36 @@ export default {
         });
       });
     },
-  },
-  computed: {
-    getDaImg: function () {
-      return this.img;
+
+    onCreatePost() {
+      let name = this.name;
+      let age = this.age;
+      let location = this.location;
+      let description = this.description;
+      let image = this.image;
+      console.log(image)
+      async function add() {
+        console.log(name);
+
+        const docRef = await addDoc(collection(db, "animals"), {
+          name: name,
+          age: age,
+          location: location,
+          description: description,
+          image: image,
+        });
+        console.log("Document written with ID: ", docRef.id);
+      }
+      add();
+      this.name = "";
+      this.age = "";
+      this.location = "";
+      this.description = "";
+      this.image = "";
     },
+    
+
+
   },
 };
 </script>

@@ -52,9 +52,7 @@ export default {
       console.log(animals);
     },
 
-    onPickFile() {
-      this.uppics.click();
-    },
+
     onFilePicked(event) {
       const files = event.target.files;
       let filename = files[0].name;
