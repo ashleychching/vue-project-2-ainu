@@ -31,6 +31,7 @@
           class="uppics"
           accept="image/*"
           @change="uploadImage"
+          required
         />
         <img :src="this.imgURL" class="img" :key="img" />
         <input type="submit" value="Submit" class="submitbtn" />
@@ -67,6 +68,7 @@ export default {
       animal: {},
       image: "",
       imgURL: undefined,
+      downloadURL:"",
     };
   },
   methods: {
@@ -87,6 +89,7 @@ export default {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           this.imgURL = URL.createObjectURL(file);
+          console.log(downloadURL)
         });
       });
     },
@@ -96,10 +99,12 @@ export default {
       let age = this.age;
       let location = this.location;
       let description = this.description;
-      let image = this.image;
+      let image = this.imgURL;
+    
       console.log(image)
       async function add() {
         console.log(name);
+        console.log(image)
         const docRef = await addDoc(collection(db, "animals"), {
           name: name,
           age: age,
@@ -107,6 +112,7 @@ export default {
           description: description,
           image: image,
         });
+        
         console.log("Document written with ID: ", docRef.id);
       }
       add();
