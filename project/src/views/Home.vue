@@ -5,10 +5,11 @@
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>
-            <p>name: {{ animal.name }}</p>
-            <p>age: {{ animal.age }}</p>
-            <p>location: {{ animal.location }}</p>
-            <p>description: {{ animal.description }}</p>
+            <h3>Name: {{ animal.name }}</h3>
+            <p>Age: {{ animal.age }}</p>
+            <p>Location: {{ animal.location }}</p>
+            <p>Description: {{ animal.description }}</p>
+            <img :src="this.imgURL" class="img" :key="img" />
           </div>
         </div>
       </ul>
@@ -24,7 +25,7 @@ import navbar from "../components/navbar.vue";
 /*  import card from "../components/card.vue";  */
 /*  import {db, doc, deleteDoc} from "../firebase/index"  */
 export default {
-  components: { navbar,  /* card */ },
+  components: { navbar /* card */ },
   name: "home",
   data() {
     return {
@@ -36,9 +37,9 @@ export default {
 
   created() {
     console.log("hi");
-
     this.fetchAnimals();
   },
+  
   methods: {
     async fetchAnimals() {
       let animalsSnapshot = await getDocs(animalsColRef);
@@ -51,9 +52,9 @@ export default {
       this.animals = animals;
       console.log(animals);
     },
-
-  }}
-  /* setup() {
+  },
+};
+/* setup() {
     const animals = null;
     const blogs = ref([
       { title: "Why Coffee is Better than Tea", id: 1 },
@@ -87,7 +88,12 @@ form {
   margin: 2rem;
   width: 32rem;
   height: 32rem;
-  border: dashed red;
+  border: solid rgb(226, 123, 226);
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
+h3 {
+  font-size: 2rem;
+}
 </style>
