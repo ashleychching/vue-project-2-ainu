@@ -9,7 +9,7 @@
             <p>Age: {{ animal.age }}</p>
             <p>Location: {{ animal.location }}</p>
             <p>Description: {{ animal.description }}</p>
-            <img src="" alt="" />
+            <img class="eachImage" v-bind:src="animal.image" alt="" />
           </div>
         </div>
       </ul>
@@ -29,7 +29,7 @@ export default {
   name: "home",
   data() {
     return {
-      image: null,
+      image: "",
       imageUrl: "",
       animals: null,
     };
@@ -79,10 +79,11 @@ form {
   font-size: 3rem;
 }
 .listy {
+  list-style-type: none;
   display: flex;
   flex-flow: row wrap;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 .thing-in-listy {
   margin: 2rem;
@@ -95,5 +96,8 @@ form {
 
 h3 {
   font-size: 2rem;
+}
+.eachImage {
+  height: 15rem;
 }
 </style>
