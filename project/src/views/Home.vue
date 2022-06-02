@@ -5,11 +5,11 @@
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>
+            <img class="eachImage" v-bind:src="animal.image" alt="" />
             <h3>Name: {{ animal.name }}</h3>
             <p>Age: {{ animal.age }}</p>
             <p>Location: {{ animal.location }}</p>
             <p>Description: {{ animal.description }}</p>
-            <img class="eachImage" v-bind:src="animal.image" alt="" />
           </div>
         </div>
       </ul>
@@ -87,8 +87,8 @@ form {
 }
 .thing-in-listy {
   margin: 2rem;
-  width: 32rem;
-  height: 32rem;
+  width: 50rem;
+  height: 70rem;
   border: solid rgb(226, 123, 226);
   border-radius: 1rem;
   padding: 2rem;
@@ -98,6 +98,6 @@ h3 {
   font-size: 2rem;
 }
 .eachImage {
-  height: 15rem;
+  width: 30rem;
 }
 </style>
