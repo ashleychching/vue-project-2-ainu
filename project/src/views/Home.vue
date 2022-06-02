@@ -5,11 +5,11 @@
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>
-            <h3>Name: {{ animal.name }}</h3>
-            <p>Age: {{ animal.age }}</p>
-            <p>Location: {{ animal.location }}</p>
-            <p>Description: {{ animal.description }}</p>
-            <img src="" alt="image uploaded" />
+            <img class="eachImage" v-bind:src="animal.image" alt="" />
+            <h3>{{ animal.name }}</h3>
+            <p>{{ animal.age }}</p>
+            <p>{{ animal.location }}</p>
+            <p>{{ animal.description }}</p>
           </div>
         </div>
       </ul>
@@ -29,7 +29,7 @@ export default {
   name: "home",
   data() {
     return {
-      image: null,
+      image: "",
       imageUrl: "",
       animals: null,
     };
@@ -79,15 +79,17 @@ form {
   font-size: 3rem;
 }
 .listy {
+  list-style-type: none;
   display: flex;
   flex-flow: row wrap;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  justify-content: center
 }
 .thing-in-listy {
   margin: 2rem;
-  width: 32rem;
-  height: 32rem;
+  width: 44rem;
+  height: 60rem;
   border: solid rgb(226, 123, 226);
   border-radius: 1rem;
   padding: 2rem;
@@ -95,5 +97,8 @@ form {
 
 h3 {
   font-size: 2rem;
+}
+.eachImage {
+  width: 40rem;
 }
 </style>
