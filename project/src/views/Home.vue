@@ -1,16 +1,21 @@
 <template>
   <div>
     <navbar></navbar>
+    <div class="biggerContain">
+ <h1>KISHU</h1>
+    <h2>adopt today</h2>
+    </div>
     <div class="bigcontain">
-      <h1>KISHU</h1>
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>
             <img class="eachImage" v-bind:src="animal.image" alt="" />
-            <h3>{{ animal.name }}</h3>
+            <div class="eachImage-description">
+<h3>{{ animal.name }}</h3>
             <p>{{ animal.age }}</p>
             <p>{{ animal.location }}</p>
             <p>{{ animal.description }}</p>
+            </div>
           </div>
         </div>
       </ul>
@@ -68,7 +73,16 @@ export default {
   }, */
 </script>
 
-<style scoped>
+<style >
+h3{
+  margin-bottom: 1rem;
+}
+.biggerContain{
+display: flex;
+flex-direction: column;
+  text-align: left;
+  margin-left: 11%;
+}
 .bigcontain {
   display: flex;
   justify-content: center;

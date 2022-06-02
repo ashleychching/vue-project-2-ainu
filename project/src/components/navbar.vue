@@ -37,7 +37,10 @@ img {
   margin-right: 1rem;
 }
 nav {
-  margin: 3rem;
+  margin: 5rem;
+  margin-left: 11rem;
+  margin-right: 11rem;
+
 }
 ul {
   display: flex;
@@ -78,4 +81,5 @@ li {
   margin-right: 40%;
   margin-left: 40%;
 }
+
 </style>
