@@ -4,7 +4,7 @@
       <div class="navgroupings">
         <li>
           <router-link to="/"
-            ><img src="../assets/Logo.png" alt=""
+            ><img src="../assets/Logo.png" alt="logo"
           /></router-link>
         </li>
         <!-- <li>
@@ -54,6 +54,7 @@ ul {
 .postbtn {
   font-size: 2rem;
   text-decoration: none;
+  color: black;
 }
 .navbtn {
   font-size: 2rem;
@@ -63,7 +64,7 @@ ul {
   padding-right: 1rem;
   background: #9f90cf;
   border-radius: 0.8rem;
-  color: #fff;
+  color: black;
 }
 .logo {
   font-size: 2rem;

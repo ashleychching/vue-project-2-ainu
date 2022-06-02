@@ -9,7 +9,7 @@
             <p>Age: {{ animal.age }}</p>
             <p>Location: {{ animal.location }}</p>
             <p>Description: {{ animal.description }}</p>
-            <img src="" alt="" />
+            <img src="" alt="image uploaded" />
           </div>
         </div>
       </ul>
