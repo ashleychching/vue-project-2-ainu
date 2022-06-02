@@ -2,6 +2,7 @@
   <div>
     <navbar></navbar>
     <div class="bigcontain">
+      <h1>KISHU</h1>
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>

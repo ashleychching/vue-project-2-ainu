@@ -4,7 +4,7 @@
       <div class="navgroupings">
         <li>
           <router-link to="/"
-            ><img src="../assets/Logo.png" alt="logo"
+            ><img src="../assets/Logo.png" alt="kishu logo"
           /></router-link>
         </li>
         <!-- <li>
