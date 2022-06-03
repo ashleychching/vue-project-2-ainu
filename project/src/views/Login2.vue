@@ -2,7 +2,7 @@
   <main>
     <div class="mobilePortraitView">
       <div class="topWrap">
-        <img src="@/assets/logo.svg" alt="logo" id="logo" />
+        <img src="@/assets/logo.svg" alt="kishu logo" id="logo" />
       </div>
       <div class="sign-box">
         <h1 class="welcome" style="margin-top: 40px">Welcome!</h1>
@@ -21,7 +21,7 @@
           class="togThemer"
           @change="switchTheme()"
         />
-        <h4 class="t4-alr">Already have an account?</h4>
+        <h3 class="t4-alr">Already have an account?</h3>
         <button class="signin" @click="goToSignIn()">Sign in</button>
       </div>
     </div>
@@ -60,8 +60,7 @@ export default {
 
 <style scoped>
 span {
-  text-decoration: underline;
-  color: #4285f4;
+  color: ##00008B;
 }
 :root {
   --lavender: #9f90cf;
@@ -127,7 +126,7 @@ button {
 }
 .signin {
   background: inherit;
-  color: #4285f4;
+  color: ##0C47A7;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

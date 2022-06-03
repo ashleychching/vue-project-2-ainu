@@ -16,6 +16,7 @@ button{
     padding: .7rem;
     justify-content: flex-end;
     transition: .1s;
+  
 }
 button:hover {background-color: rgb(41,43,131)}
 button:active {
