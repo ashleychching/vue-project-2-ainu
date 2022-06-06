@@ -2,7 +2,7 @@
   <div>
     <navbar></navbar>
     <div class="pg">
-      <h3>Upload post</h3>
+      <h1>Upload post</h1>
       <form @submit.prevent="onCreatePost">
         <label for="name">Name of Animal:</label>
         <input name="name" label="Name" id="name" v-model="name" required />
@@ -28,12 +28,13 @@
         <label for="image">Image:</label>
         <input
           type="file"
+          id="image"
           class="uppics"
           accept="image/*"
           @change="uploadImage"
           required
         />
-        <img :src="this.imgURL" class="img" :key="img" />
+        <img :src="this.imgURL" class="img" :key="img" alt="your image" />
         <input type="submit" value="Submit" class="submitbtn" />
       </form>
     </div>
@@ -137,7 +138,10 @@ form {
   font-size: 3rem;
   width: 40%;
 }
-h3 {
+h1{
+  font-size: 5rem;
+}
+h3,h1 {
   margin-bottom: 2rem;
 }
 
@@ -147,7 +151,8 @@ h3 {
   margin-right: auto;
   width: 30%;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+ /*  margin-top: 2rem;
+  border: solid black; */
 }
 .pg {
   display: flex;
@@ -159,7 +164,7 @@ h3 {
 }
 .submitbtn {
   height: 5rem;
-  background: #4285f4;
+  background: #0B4FBC;
   border-radius: 0.8rem;
   color: #fff;
 }
