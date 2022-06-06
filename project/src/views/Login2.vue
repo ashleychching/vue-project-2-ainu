@@ -15,12 +15,16 @@
           <span>Terms of Service</span> and <span>Privacy Policy</span>,
           including <span> cookie use</span>.
         </p>
+        <form>
+<label for="checkbox">Theme</label>
         <input
           type="checkbox"
           name="checkbox"
+          id="checkbox"
           class="togThemer"
           @change="switchTheme()"
         />
+        </form>
         <h3 class="t4-alr">Already have an account?</h3>
         <button class="signin" @click="goToSignIn()">Sign in</button>
       </div>
