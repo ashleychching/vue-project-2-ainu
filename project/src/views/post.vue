@@ -151,8 +151,8 @@ h3,h1 {
   margin-right: auto;
   width: 30%;
   margin-bottom: 2rem;
- /*  margin-top: 2rem;
-  border: solid black; */
+  margin-top: 2rem;
+  border: solid black; 
 }
 .pg {
   display: flex;
