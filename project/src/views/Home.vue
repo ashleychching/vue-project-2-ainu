@@ -15,6 +15,7 @@
             <p>{{ animal.age }}</p>
             <p>{{ animal.location }}</p>
             <p>{{ animal.description }}</p>
+            <button @click="deletePost">delete</button>
             </div>
           </div>
         </div>
@@ -25,7 +26,8 @@
 
 <script>
 import animalsColRef from "../firebase";
-import { getDocs } from "firebase/firestore";
+import { db } from "../firebase/index"
+import { getDocs, doc, deleteDoc } from "firebase/firestore";
 //import { ref } from "vue";
 import navbar from "../components/navbar.vue";
 /*  import card from "../components/card.vue";  */
@@ -45,6 +47,9 @@ export default {
     console.log("hi");
     this.fetchAnimals();
   },
+  deletePost(){
+this.deletePoster();
+  },
 
   methods: {
     async fetchAnimals() {
@@ -59,6 +64,10 @@ export default {
       console.log(animals);
     },
   },
+async deletePoster(){
+await deleteDoc(doc(db, "animals", this.animals));
+console.log(this.animals)
+}
 };
 /* setup() {
     const animals = null;
@@ -115,5 +124,8 @@ h3 {
 }
 .eachImage {
   width: 40rem;
+}
+button{
+  font-size: 5rem;
 }
 </style>

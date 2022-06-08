@@ -34,7 +34,7 @@
           @change="uploadImage"
           required
         />
-        <img :src="this.imgURL" class="img" :key="img" alt="your image" />
+        <img :src="this.imgURL" class="img" :key="img" alt="your animal" />
         <input type="submit" value="Submit" class="submitbtn" />
       </form>
     </div>
