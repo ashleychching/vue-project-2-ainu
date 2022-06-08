@@ -90,7 +90,7 @@ export default {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
         //  = URL.createObjectURL(file);
-           this.imgURL = downloadURL
+           this.imgURL = URL.createObjectURL(file)
           console.log(this.imgURL)
         });
       });
