@@ -2,8 +2,8 @@
   <div>
     <navbar></navbar>
     <div class="biggerContain">
- <h1>KISHU</h1>
-    <h2>adopt today</h2>
+      <h1>KISHU</h1>
+      <h2>adopt today</h2>
     </div>
     <div class="bigcontain">
       <ul class="listy">
@@ -11,11 +11,11 @@
           <div>
             <img class="eachImage" v-bind:src="animal.image" alt="" />
             <div class="eachImage-description">
-<h3>{{ animal.name }}</h3>
-            <p>{{ animal.age }}</p>
-            <p>{{ animal.location }}</p>
-            <p>{{ animal.description }}</p>
-            <button @click="deletePost">delete</button>
+              <h3>{{ animal.name }}</h3>
+              <p>{{ animal.age }}</p>
+              <p>{{ animal.location }}</p>
+              <p>{{ animal.description }}</p>
+              <button @click="deletePost()">delete</button>
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
 
 <script>
 import animalsColRef from "../firebase";
-import { db } from "../firebase/index"
+import { db } from "../firebase/index";
 import { getDocs, doc, deleteDoc } from "firebase/firestore";
 //import { ref } from "vue";
 import navbar from "../components/navbar.vue";
@@ -47,9 +47,6 @@ export default {
     console.log("hi");
     this.fetchAnimals();
   },
-  deletePost(){
-this.deletePoster();
-  },
 
   methods: {
     async fetchAnimals() {
@@ -63,12 +60,19 @@ this.deletePoster();
       this.animals = animals;
       console.log(animals);
     },
+  deletePost() {
+    console.log("btn clicked", db, doc, deleteDoc);
+      if (confirm("are u sure?")) {
+      db.collection("animals")
+        .doc(doc)
+        .delete()
+        .then(function () {
+          console.log("doc successfully deleted");
+          console.log("button pressed");
+        });
+    } 
   },
-async deletePoster(){
-await deleteDoc(doc(db, "animals", this.animals));
-console.log(this.animals)
-}
-};
+}}
 /* setup() {
     const animals = null;
     const blogs = ref([
@@ -82,13 +86,13 @@ console.log(this.animals)
   }, */
 </script>
 
-<style >
-h3{
+<style>
+h3 {
   margin-bottom: 1rem;
 }
-.biggerContain{
-display: flex;
-flex-direction: column;
+.biggerContain {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   margin-left: 11%;
 }
@@ -108,7 +112,7 @@ form {
   flex-flow: row wrap;
   margin-left: 4rem;
   margin-right: 4rem;
-  justify-content: center
+  justify-content: center;
 }
 .thing-in-listy {
   margin: 2rem;
@@ -125,7 +129,7 @@ h3 {
 .eachImage {
   width: 40rem;
 }
-button{
+button {
   font-size: 5rem;
 }
 </style>
