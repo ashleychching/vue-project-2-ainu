@@ -15,7 +15,7 @@
               <p>{{ animal.age }}</p>
               <p>{{ animal.location }}</p>
               <p>{{ animal.description }}</p>
-              <button @click="deletePost()">delete</button>
+              <button @click="deletePost(animal)">delete</button>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
 <script>
 import animalsColRef from "../firebase";
 import { db } from "../firebase/index";
-import { getDocs, doc, deleteDoc } from "firebase/firestore";
+import { getDocs,/*  doc, deleteDoc */ } from "firebase/firestore";
 //import { ref } from "vue";
 import navbar from "../components/navbar.vue";
 /*  import card from "../components/card.vue";  */
@@ -60,19 +60,10 @@ export default {
       this.animals = animals;
       console.log(animals);
     },
-  deletePost() {
-    console.log("btn clicked", db, doc, deleteDoc);
-      if (confirm("are u sure?")) {
-      db.collection("animals")
-        .doc(doc)
-        .delete()
-        .then(function () {
-          console.log("doc successfully deleted");
-          console.log("button pressed");
-        });
-    } 
-  },
-}}
+  deletePost(animal) {
+  console.log(animal);
+  db.collection("animals").doc(animal.id).delete()
+}}}
 /* setup() {
     const animals = null;
     const blogs = ref([
