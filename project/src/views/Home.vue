@@ -40,6 +40,8 @@ export default {
       image: "",
       imageUrl: "",
       animals: null,
+      animal:"",
+      deletePost,
     };
   },
 
@@ -59,11 +61,16 @@ export default {
       });
       this.animals = animals;
       console.log(animals);
-    },
-  deletePost(animal) {
+    },}}
+    async function deletePost(animal){
+      console.log(animal);
+await db.collection('animals').doc(animal.id).delete()
+console.log(animal, deletePost)
+    }
+/*   deletePost(animal) {
   console.log(animal);
   db.collection("animals").doc(animal.id).delete()
-}}}
+}}} */
 /* setup() {
     const animals = null;
     const blogs = ref([
