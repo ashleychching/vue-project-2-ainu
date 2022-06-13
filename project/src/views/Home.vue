@@ -9,13 +9,13 @@
       <ul class="listy">
         <div v-for="animal in animals" :key="animal.id" class="thing-in-listy">
           <div>
+             <button class="delete" @click="deletePost(animal.id)">x</button>
             <img class="eachImage" v-bind:src="animal.image" alt="" />
             <div class="eachImage-description">
               <h3>{{ animal.name }}</h3>
               <p>{{ animal.age }}</p>
               <p>{{ animal.location }}</p>
               <p>{{ animal.description }}</p>
-              <button @click="deletePost(animal.id)">delete</button>
             </div>
           </div>
         </div>
@@ -127,6 +127,16 @@ h3 {
 }
 .eachImage {
   width: 40rem;
+}
+.delete{
+    font-size: 5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  background: #9f90cf;
+  border-radius: 0.8rem;
+  border: none;
+  color: black;
+  position: absolute;
 }
 button {
   font-size: 5rem;

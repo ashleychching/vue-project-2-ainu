@@ -113,6 +113,7 @@ export default {
           location: location,
           description: description,
           image: image,
+          
         });
         
         console.log("Document written with ID: ", docRef.id);
