@@ -3,14 +3,21 @@
     <main class="login">
       <section class="forms">
         <form class="login" @submit.prevent="login">
-          <h2>Welcome back!</h2>
+          <h1>Welcome back!</h1>
+           <label for="email">email:</label>
           <input
+          label="email"
+          id="email"
             type="email"
             placeholder="Email address"
             v-model="login_form.email"
             class="email-box"
           />
+         <label for="password">password:</label>
           <input
+          class="password"
+          label="password"
+          id="password"
             type="password"
             placeholder="Password"
             v-model="login_form.password"
@@ -44,19 +51,28 @@ export default {
 .wtfman {
   display: flex;
   justify-content: center;
+  
+}
+h1{
+   font-family: "Sora";
+  font-weight: 500;
+  font-size: 2.4rem;
 }
 h2 {
   font-family: "Sora";
   font-weight: 500;
   font-size: 2.4rem;
 }
-label,
 input,
 button {
   height: 6rem;
   width: 20vw;
   font-size: 2rem;
   border-radius: 1rem;
+}
+label,.password{
+  margin: auto;
+  margin: 1rem;
 }
 
 input {
